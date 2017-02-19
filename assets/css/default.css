@@ -1,1 +1,12 @@
 @charset "UTF-8";
+
+body
+{
+    color: #666666;
+    background-color: White;
+}
+
+#header
+{
+    border-bottom: solid 1ex #666666
+}
