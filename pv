@@ -1,9 +1,8 @@
 #!/bin/sh
 
-PJHOME=$(cd $(dirname $0); pwd)
 VOL=$(cd $(dirname $0); pwd):/usr/share/nginx/html:ro
-IMAGE=`docker run -d -p 4000:80 -v ${VOL} nginx:alpine`
+CONTAINER=`docker run -d -p 4000:80 -v ${VOL} nginx:alpine`
 IP=`docker-machine ip docker`
 printf "Please open via browser: \e[1;4mhttp://${IP}:4000\e[m\n"
 read -p "Press any key to shutdown server."
-docker rm -f ${IMAGE}
+docker rm -f ${CONTAINER}
