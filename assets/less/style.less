@@ -1,0 +1,41 @@
+@charset "UTF-8";
+@import "lib.less";
+@import "colors.less";
+
+body
+{
+    font-family: @font-stack;
+    color:@darkGrey;
+    -webkit-font-smoothing: antialiased;
+}
+a
+{
+    font-family: @font-stack;
+    -webkit-font-smoothing: antialiased;
+}
+div.content
+{
+    overflow: hidden;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
+{
+    color:@darkGrey;
+}
+header
+{
+}
+
+.pre-loader
+{
+    background: @baseDark;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 9999999;
+    display: none;
+    .load-con{
+        margin: 20% auto;
+        position: relative;
+        text-align: center;
+    }
+}
