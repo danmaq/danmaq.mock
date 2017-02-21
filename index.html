@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
     <meta name="description" content="danmaq は、東方・ボカロおよびオリジナルを中心に、ゲームなど様々なコンテンツを提供する同人ブランドです。" />
     <meta name="keywords" content="Touhou CtC, Concealed the Conclusion" />
     <title>danmaq</title>
@@ -26,10 +26,10 @@
 
 <body data-spy="scroll" data-target="#scroll-spy">
     <header id="scroll-spy">
-        <nav class="navbar navbar-light bg-faded navbar-fixed-top">
+        <nav class="navbar navbar-dark bg-faded navbar-fixed-top navbar-expand">
             <div class="container-fluid">
-                <a href="#" class="navbar-brand"><img src="./assets/img/logo2012W.svg" class="hidden-sm-down animated fadeIn" alt="danmaq" width="150" height="50" /><img src="./assets/img/logoD.svg" class="hidden-md-up animated fadeIn" alt="danmaq" width="45" height="50" /></a>
-                <button class="navbar-toggler hidden-md-up float-xs-right" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
+                <a href="#" class="navbar-brand"><img src="./assets/img/logo2012W.svg" class="logo-large animated fadeIn" alt="danmaq" width="150" height="50" /></a>
+                <button class="navbar-toggler hidden-md-up float-xs-right collapsed" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
                 <div class="clearfix hidden-md-up"></div>
                 <!-- fix navbar responsive bug -->
                 <div class="collapse navbar-toggleable-sm" id="navbar-header">
@@ -39,11 +39,12 @@
                         <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                         <li class="nav-item"><a href="#column" class="nav-link">Column</a></li>
                     </ul>
+
                     <div class="form-inline float-xs-right">
-                        <a href="https://twitter.com/intent/tweet?url=https://rinhoshizo.la/&text=Rin%20%2d%20%e6%97%a5%e6%9c%ac%e8%aa%9e%e3%82%82%e7%be%8e%e3%81%97%e3%81%8f%e8%a1%a8%e7%a4%ba%e3%81%a7%e3%81%8d%e3%82%8bBootstrap%e3%83%86%e3%83%bc%e3%83%9e" class="btn btn-twitter"
-                            title="Tweet"><i class="fa fa-twitter fa-lg"></i></a>
-                        <a href="http://www.facebook.com/sharer.php?u=https://rinhoshizo.la/" class="btn btn-facebook" title="Share"><i class="fa fa-facebook fa-lg"></i></a>
-                        <a href="javascript:window.open('http://b.hatena.ne.jp/add?mode=confirm&is_bm=1&title='+escape(document.title)+'&url='+escape(location.href),%20'_blank',%20'width=520,height=600,resizable=1,scrollbars=1');undefined;" class="btn btn-hatebu" title="Hatena"><i class="fa fa-hatebu fa-lg"></i></a>
+                        <a href="https://twitter.com/intent/tweet?url=https://danmaq.com/&amp;text=danmaq%20%E3%81%AF%E3%80%81%E6%9D%B1%E6%96%B9%E3%83%BB%E3%83%9C%E3%82%AB%E3%83%AD%E3%81%8A%E3%82%88%E3%81%B3%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%92%E4%B8%AD%E5%BF%83%E3%81%AB%E3%80%81%E3%82%B2%E3%83%BC%E3%83%A0%E3%81%AA%E3%81%A9%E6%A7%98%E3%80%85%E3%81%AA%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%E3%82%92%E6%8F%90%E4%BE%9B%E3%81%99%E3%82%8B%E5%90%8C%E4%BA%BA%E3%83%96%E3%83%A9%E3%83%B3%E3%83%89%E3%81%A7%E3%81%99%E3%80%82"
+                            class="btn btn-twitter" title="Tweet"><i class="fa fa-twitter fa-lg" target="_blank"></i></a>
+                        <a href="http://www.facebook.com/sharer.php?u=https://danmaq.com/" class="btn btn-facebook" title="Share"><i class="fa fa-facebook fa-lg" target="_blank"></i></a>
+                        <a href="javascript:window.open('http://b.hatena.ne.jp/add?mode=confirm&is_bm=1&title='+escape(document.title)+'&url='+escape(location.href),%20'_blank',%20'width=520,height=600,resizable=1,scrollbars=1');undefined;" class="btn btn-hatebu" title="Hatena"><i class="fa fa-hatebu fa-lg" target="_blank"></i></a>
                     </div>
                 </div>
             </div>
@@ -56,7 +57,7 @@
                 <div class="col-xs-12 outline">
                     <h1 class="display-4 jumbotron-h1">Creating, and Sharing.</h1>
                     <p>&ldquo;danmaq&rdquo; は、たった今も明日の&ldquo;楽しい&rdquo;を考えています。</p>
-                    <p><a class="btn btn-primary btn-lg" href="#about" role="button">Learn more</a>
+                    <p><a class="btn btn-primary btn-lg" href="#works" role="button">Learn more</a></p>
                 </div>
             </div>
         </div>
@@ -67,26 +68,38 @@
             <div class="row">
                 <div class="col-xs-12 subtitle">
                     <h2 id="works">Works</h2>
-                    <p>私たち同人ゲームサークル &ldquo;danmaq&rdquo; の作品を、ほんの少しだけご紹介。</p>
+                    <p>私たち同人ゲームサークル &ldquo;danmaq&rdquo; の作品を、4つだけピックアップしてご紹介。</p>
                 </div>
             </div>
             <div class="row">
                 <div class="card card-thc col-md-3 col-sm-6">
-                    <h3>東方夢終劇<small>Concealed the Conclusion</small></h3>
-                    <p>東方の悲しい物語。避けられぬ幻想郷最期の日を描いた、東方二次創作STG。</p>
+                    <article>
+                        <h3>東方夢終劇<small> - Concealed the Conclusion</small></h3>
+                        <p>東方の悲しい物語。避けられぬ幻想郷最期の日を描いた、東方二次創作STG。</p>
+                    </article>
+                    <p><a class="btn btn-primary btn-lg" href="" role="button">Learn more</a></p>
                 </div>
                 <div class="card card-atc col-md-3 col-sm-6">
-                    <h3>Answer the Conclusion</h3>
-                    <p>東方夢終劇の後日譚。東方×オリジナルなスピンオフ物語。</p>
+                    <article>
+                        <h3>Answer the Conclusion</h3>
+                        <p>東方夢終劇の後日譚。東方×オリジナルなスピンオフ物語。</p>
+                    </article>
+                    <p><a class="btn btn-primary btn-lg" href="" role="button">Learn more</a></p>
                 </div>
                 <div class="card card-thm col-md-3 col-sm-6">
-                    <h3>結界幻想録 鏡<small>Mythical mirror</small></h3>
-                    <p>幻想郷のようで違う世界に紛れ込んだいつもの妖怪たち。場所は違えど大暴れな東方二次創作STG。</p>
+                    <article>
+                        <h3>結界幻想録 鏡<small> - Mythical mirror</small></h3>
+                        <p>幻想郷のようで違う世界に紛れ込んだいつもの妖怪たち。場所は違えど大暴れな東方二次創作STG。</p>
+                    </article>
+                    <p><a class="btn btn-primary btn-lg" href="" role="button">Learn more</a></p>
                 </div>
                 <div class="card card-stm col-md-3 col-sm-6">
-                    <h3>ソクラテスは死ぬ</h3>
-                    <p>Googleはロリコンだった!? 新感覚三段論法SNS。<br />
-                    <small>サービス終了・運営: (株)PRODIGY</small></p>
+                    <article>
+                        <h3>ソクラテスは死ぬ</h3>
+                        <p>Googleはロリコンだった!? 新感覚三段論法SNS。<br />
+                            <small>サービス終了・運営: (株)PRODIGY</small></p>
+                    </article>
+                    <p><a class="btn btn-primary btn-lg" href="" role="button">Learn more</a></p>
                 </div>
             </div>
         </div>
@@ -107,20 +120,20 @@
                 </div>
                 <div class="col-sm-6">
                     <h3>共有する</h3>
-                    <p>作品制作のノウハウや世界観などをあなたに共有いたします。オフラインでの勉強会なども開催しております。</p>
+                    <p>作品制作のノウハウや世界観、そしてちょっとした制作のための心意気などをあなたに共有いたします。オフラインでの勉強会なども開催しております。</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 subtitle">
                     <h3>メンバー紹介</h3>
-                    <p>プロジェクトごとに最高のチームを作り、完成したら解散、という形式で活動しています。そのため固定メンバーは &ldquo;まく&rdquo; 一人です。</p>
+                    <p>プロジェクトごとに最高のチームを揃えて、完成したら解散、という形式で活動しています。そのため固定メンバーは &ldquo;まく&rdquo; 一人です。</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-3">
                     <h3>まく</h3>
-                    <p>本名・野村周平(俳優じゃないほうです)<br />
-                    本職はフリーのプログラマー。実態は何でも屋。</p>
+                    <p>本名・野村周平(俳優じゃないほうです)<br /> 本職はフリーのプログラマー。実態は何でも屋。
+                    </p>
                 </div>
                 <div class="col-sm-7">
                     <h4>実績</h4>
@@ -162,6 +175,7 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
     <script type="text/javascript" src="./assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./assets/js/default.js"></script>
 </body>
 
 </html>
