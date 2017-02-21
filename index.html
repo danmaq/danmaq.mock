@@ -8,68 +8,133 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="description" content="danmaq は、東方・ボカロおよびオリジナルを中心に、ゲームなど様々なコンテンツを提供する同人ブランドです。" />
     <meta name="keywords" content="Touhou CtC, Concealed the Conclusion" />
     <title>danmaq</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
-   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" /> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
-    <link rel="stylesheet/less" type="text/css" href="assets/less/style.less" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+    <link rel="stylesheet/less" type="text/css" href="./assets/less/style.less" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 
 <body>
-    <div class="pre-loader">
-        <div class="load-con">
-            <img src="assets/img/logo2012.svg" class="animated fadeInDown" alt="" />
-            <div class="spinner">
-              <div class="bounce1"></div>
-              <div class="bounce2"></div>
-              <div class="bounce3"></div>
-            </div>
-        </div>
-    </div>
     <header>
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="fa fa-bars fa-lg"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html">
-                        <img src="assets/img/logo2012.svg" alt="danmaq" class="logo">
-                    </a>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#about">about</a></li>
-                        <li><a href="#features">features</a></li>
-                        <li><a href="#reviews">reviews</a></li>
-                        <li><a href="#screens">screens</a></li>
-                        <li><a href="#demo">demo</a></li>
-                        <li><a class="getApp" href="#getApp">get app</a></li>
-                        <li><a href="#support">support</a></li>
+        <nav class="navbar navbar-light bg-faded navbar-fixed-top">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand"><img src="./assets/img/logo2012W.svg" class="hidden-sm-down animated fadeIn" alt="danmaq" width="150" height="50" /><img src="./assets/img/logoD.svg" class="hidden-md-up animated fadeIn" alt="danmaq" width="45" height="50" /></a>
+                <button class="navbar-toggler hidden-md-up float-xs-right" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
+                <div class="clearfix hidden-md-up"></div>
+                <!-- fix navbar responsive bug -->
+                <div class="collapse navbar-toggleable-sm" id="navbar-header">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item"><a href="#works" class="nav-link">Works</a></li>
+                        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="#column" class="nav-link">Column</a></li>
                     </ul>
+                    <div class="form-inline float-xs-right">
+                        <a href="https://twitter.com/intent/tweet?url=https://rinhoshizo.la/&text=Rin%20%2d%20%e6%97%a5%e6%9c%ac%e8%aa%9e%e3%82%82%e7%be%8e%e3%81%97%e3%81%8f%e8%a1%a8%e7%a4%ba%e3%81%a7%e3%81%8d%e3%82%8bBootstrap%e3%83%86%e3%83%bc%e3%83%9e" class="btn btn-twitter"
+                            title="Tweet"><i class="fa fa-twitter fa-lg"></i></a>
+                        <a href="http://www.facebook.com/sharer.php?u=https://rinhoshizo.la/" class="btn btn-facebook" title="Share"><i class="fa fa-facebook fa-lg"></i></a>
+                        <a href="javascript:window.open('http://b.hatena.ne.jp/add?mode=confirm&is_bm=1&title='+escape(document.title)+'&url='+escape(location.href),%20'_blank',%20'width=520,height=600,resizable=1,scrollbars=1');undefined;" class="btn btn-hatebu" title="Hatena"><i class="fa fa-hatebu fa-lg"></i></a>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
 
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 outline">
+                    <h1 class="display-4 jumbotron-h1">Creating, and Sharing.</h1>
+                    <p>&ldquo;danmaq&rdquo; は、たった今も明日の&ldquo;楽しい&rdquo;を考えています。</p>
+                    <p><a class="btn btn-primary btn-lg" href="#about" role="button">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section section-default point">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 subtitle">
+                    <h2>Works</h2>
+                    <p>&ldquo;danmaq&rdquo; の作品を、ほんの少しだけご紹介。</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card col-md-3 col-sm-6">
+                    <h3>東方夢終劇<small>Concealed the Conclusion</small></h3>
+                    <p>東方の悲しい物語。避けられぬ幻想郷最期の日を描いた、東方二次創作STG。</p>
+                </div>
+                <div class="card col-md-3 col-sm-6">
+                    <h3>Answer the Conclusion</h3>
+                    <p>東方夢終劇の後日譚。東方×オリジナルなスピンオフ物語。</p>
+                </div>
+                <div class="card col-md-3 col-sm-6">
+                    <h3>結界幻想録 鏡<small>Mythical mirror</small></h3>
+                    <p>幻想郷のようで違う世界に紛れ込んだいつもの妖怪たち。場所は違えど大暴れな東方二次創作STG。</p>
+                </div>
+                <div class="card col-md-3 col-sm-6">
+                    <h3>ソクラテスは死ぬ</h3>
+                    <p>Googleはロリコンだった!? 新感覚三段論法SNS。<br />
+                    <small>サービス終了・運営: (株)PRODIGY</small></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-default point">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 subtitle">
+                    <h2 id="about">About</h2>
+                    <p>私たちは、&ldquo;創る&rdquo;と&ldquo;共有する&rdquo;に特化した、ゲーム制作サークルです。</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3>創る</h3>
+                    <p>東方やボカロ、あるいはオリジナルの作品を作っています。</p>
+                </div>
+                <div class="col-sm-6">
+                    <h3>共有する</h3>
+                    <p>作品制作の技術などをあなたに共有します。たまに勉強会もやります。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-default point">
+        <div class="container">
+            <div class="col-xs-12 subtitle">
+                <h2 id="contact">Contact</h2>
+                <p>Underconstruction.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-default point">
+        <div class="container">
+            <div class="col-xs-12 subtitle">
+                <h2 id="column">Column</h2>
+                <p>Underconstruction.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Libs -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script type="text/javascript" src="./assets/js/bootstrap.min.js"></script>
 </body>
 
 </html>
