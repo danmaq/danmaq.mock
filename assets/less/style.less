@@ -1,4 +1,5 @@
-@charset: "UTF-8";
+@charset "UTF-8";
+
 @base: #BBBFDC; 
 @baseDark: #666099;
 @lightGrey: #999999;
@@ -6,20 +7,72 @@
 @white: #ffffff;
 @font-stack: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
 
-.navbar
+@media screen and (max-width: 479px)
 {
-    border-bottom-color: @baseDark;
-    padding-top: 0rem;
-    padding-bottom: 0rem;
-    .navbar-nav
+    .navbar-brand
     {
-        padding-top: 1rem;
+        margin-right: 0rem;
     }
 }
-.navbar-brand
+
+.navbar
 {
-    background-color: @baseDark;
+    border-bottom: solid 0.2rem @baseDark;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    transition: all 0.4s ease;
+    transition: background-color 0.4s ease 0.1s;
+    .logo-large
+    {
+        width: 10rem;
+        height: 3rem;
+        transition: all 0.4s ease;
+    }
+    .navbar-brand
+    {
+        background-color: @baseDark;
+        padding: 0rem;
+    }
+    .navbar-nav
+    {
+        padding-top: 0.5rem;
+    }
+    .btn
+    {
+        background-color: @white
+    }
+    .navbar-toggler
+    {
+        border-radius: 0rem;
+        width: 3rem;
+        height: 3rem;
+    }
+    .navbar-toggler:not(.collapsed)
+    {
+        background-color: @baseDark;
+    }
 }
+.navbar-expand
+{
+    background-color: rgba(0, 0, 0, 0);
+    border-bottom-style: none;
+    transition: background-color 0.2s ease;
+    .logo-large
+    {
+        width: 18rem;
+        height: 6rem;
+    }
+    .navbar-brand
+    {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    .collapsing, .in
+    {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+        padding: 1rem;
+    }
+}
+
 
 .fa-hatebu {
     &:before {
@@ -33,7 +86,7 @@
 {
     background: linear-gradient(135deg, @baseDark, @base);
     background-size: cover;
-    min-height: 25rem;
+    min-height: 35rem;
     height: 100vh;
     .container
     {
@@ -44,5 +97,25 @@
 .card
 {
     border-style: none;
-    min-height: 15rem;
+    min-height: 20rem;
+    padding: 1rem;
+    article
+    {
+        min-height: 16rem;
+    }
+    h3
+    {
+        font-size: 1.4rem;
+    }
 }
+
+ul.row li
+{
+    list-style-type: none;
+}
+
+.card-thc { background-color: @base; }
+.card-atc { background-color: #eeeeee; }
+.card-thm { background-color: #ffffcc; }
+.card-stm { background-color: #ffccbb; }
+
