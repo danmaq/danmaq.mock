@@ -37,13 +37,13 @@ const on_ready =
                 const found =
                     acs.filter(function() { return sub($(this).data('p')); });
                 let e = (found.length == 0 ? acs : found).first();
-                e.show();
                 e.addClass('achieve-' + v);
-                //e.text('');
+                e.show();
+                e.removeClass('hidden');
+                if (e.data('img')) {
+                    console.log(e.text());
+                }
             };
-        //achieves.each(console.log);
-        //console.log('achieves: ', achieves.length);
-        //console.log('achieves: ', achieves.data('achieve'));
         $('#achieve li').hide();
         achieves_selected.forEach(select);
     };
