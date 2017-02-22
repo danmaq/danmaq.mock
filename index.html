@@ -17,6 +17,10 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
     <link rel="stylesheet/less" type="text/css" href="./assets/less/style.less" />
+    <!--[if IE]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/6.1.19/browser.min.js"></script>
+    <![endif]-->
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -130,24 +134,24 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4">
-                    <h3>まく <small>Shuhei Nomura</small></h3>
+                <div class="col-md-4">
+                    <h3>まく<br /><small>Shuhei Nomura</small></h3>
                     <p>本職はフリーのプログラマー。一人でゲームを作れるようになりたい、と何でもかんでも勉強していたら、いつのまに何でも屋になっていた。今後はWebとスマホ/PCアプリに絞っていくつもり。
                     </p>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-md-8">
                     <h4>主なスキル</h4>
                     <ul class="row" id="achieve">
-                        <li class="col-xs-4" data-achieve="vm" data-p="6" data-img="docker">docker</li>
-                        <li class="col-xs-4 hidden" data-achieve="vm" data-p="5" data-img="docker-machine">docker-machine</li>
+                        <li class="col-xs-4" data-achieve="vm" data-p="10" data-img="docker">docker</li>
                         <li class="col-xs-4 hidden" data-achieve="vm" data-p="7" data-img="docker-compose">docker-compose</li>
-                        <li class="col-xs-4 hidden" data-achieve="vm" data-p="3" data-img="vagrant">Vagrant</li>
                         <li class="col-xs-4 hidden" data-achieve="vm" data-p="4" data-img="ansible">Ansible</li>
+                        <li class="col-xs-4 hidden" data-achieve="vm" data-p="3" data-img="docker-machine">docker-machine</li>
+                        <li class="col-xs-4 hidden" data-achieve="vm" data-p="3" data-img="vagrant">Vagrant</li>
                         <li class="col-xs-4 hidden" data-achieve="vm" data-p="2" data-img="parallels">Parallels</li>
                         <li class="col-xs-4 hidden" data-achieve="vm" data-p="1" data-img="virtualbox">VirtualBox</li>
-                        <li class="col-xs-4" data-achieve="iaas" data-p="5" data-img="sakura-vps">SAKURA VPS</li>
+                        <li class="col-xs-4" data-achieve="iaas" data-p="10" data-img="sakura-vps">SAKURA VPS</li>
                         <li class="col-xs-4 hidden" data-achieve="iaas" data-p="3" data-img="xserver">XSERVER</li>
-                        <li class="col-xs-4 hidden" data-achieve="iaas" data-p="4" data-img="sakura-cloud">SAKURA CLOUD</li>
+                        <li class="col-xs-4 hidden" data-achieve="iaas" data-p="8" data-img="sakura-cloud">SAKURA CLOUD</li>
                         <li class="col-xs-4 hidden" data-achieve="iaas" data-p="2" data-img="idc">IDC Frontier</li>
                         <li class="col-xs-4 hidden" data-achieve="iaas" data-p="1" data-img="sppd">SPPD</li>
                         <li class="col-xs-4" data-achieve="saas" data-p="10" data-img="opensocial">OpenSocial</li>
@@ -170,7 +174,7 @@
                         <li class="col-xs-4 hidden" data-achieve="manage" data-p="1" data-img="subversion">Subversion</li>
                         <li class="col-xs-4" data-achieve="backend" data-p="20" data-img="jekyll">Jekyll</li>
                         <li class="col-xs-4 hidden" data-achieve="backend" data-p="20" data-img="meteor">Meteor</li>
-                        <li class="col-xs-4 hidden" data-achieve="backend" data-p="15" data-img="imagick">ImageMagick</li>
+                        <li class="col-xs-4 hidden" data-achieve="backend" data-p="15" data-img="imagick">Image Magick</li>
                         <li class="col-xs-4 hidden" data-achieve="backend" data-p="12" data-img="nginx">NGINX</li>
                         <li class="col-xs-4 hidden" data-achieve="backend" data-p="10" data-img="php">PHP</li>
                         <li class="col-xs-4 hidden" data-achieve="backend" data-p="8" data-img="perl">Perl</li>
@@ -211,10 +215,10 @@
                         <li class="col-xs-4 hidden" data-achieve="linux" data-p="1" data-img="fedora">Fedora</li>
                         <li class="col-xs-4 hidden" data-achieve="linux" data-p="1" data-img="debian">Debian GNU/Linux</li>
                         <li class="col-xs-4 hidden" data-achieve="linux" data-p="1" data-img="suse">OpenSUSE</li>
-                        <li class="col-xs-4" data-achieve="ide" data-p="10" data-img="visualstudio">VisualStudio</li>
-                        <li class="col-xs-4 hidden" data-achieve="ide" data-p="4" data-img="adobe-fb">Adobe Flash Builder</li>
-                        <li class="col-xs-4 hidden" data-achieve="ide" data-p="3" data-img="xcode">Xcode</li>
-                        <li class="col-xs-4 hidden" data-achieve="ide" data-p="2" data-img="eclipse">Eclipse</li>
+                        <li class="col-xs-4" data-achieve="ide" data-p="12" data-img="visualstudio">VisualStudio</li>
+                        <li class="col-xs-4 hidden" data-achieve="ide" data-p="7" data-img="adobe-fb">Adobe Flash Builder</li>
+                        <li class="col-xs-4 hidden" data-achieve="ide" data-p="7" data-img="xcode">Xcode</li>
+                        <li class="col-xs-4 hidden" data-achieve="ide" data-p="5" data-img="eclipse">Eclipse</li>
                         <li class="col-xs-4 hidden" data-achieve="ide" data-p="1" data-img="codewarrior">CodeWarrior</li>
                         <li class="col-xs-4" data-achieve="gameapi" data-p="4" data-img="unity3d">Unity 3D</li>
                         <li class="col-xs-4 hidden" data-achieve="gameapi" data-p="3" data-img="xna">Microsoft XNA</li>
@@ -228,12 +232,12 @@
                         <li class="col-xs-4 hidden" data-achieve="lang" data-p="1" data-img="csharp">C#</li>
                         <li class="col-xs-4 hidden" data-achieve="lang" data-p="1" data-img="cpp">C++</li>
                         <li class="col-xs-4 hidden" data-achieve="lang" data-p="1" data-img="qt">Qt Quick</li>
-                        <li class="col-xs-4" data-achieve="misc" data-p="20" data-img="freecodecamp">freecodecamp(_)</li>
+                        <li class="col-xs-4" data-achieve="misc" data-p="20" data-img="freecodecamp">freecodecamp</li>
                         <li class="col-xs-4 hidden" data-achieve="misc" data-p="20" data-img="powershell">PowerShell</li>
-                        <li class="col-xs-4 hidden" data-achieve="misc" data-p="5" data-img="markdown">Markdown</li>
-                        <li class="col-xs-4 hidden" data-achieve="misc" data-p="5" data-img="uml">UML</li>
-                        <li class="col-xs-4 hidden" data-achieve="misc" data-p="1" data-img="license-fe">基本情報技術者(FE)</li>
-                        <li class="col-xs-4 hidden" data-achieve="misc" data-p="1" data-img="license-ip">ITパスポート(IP)</li>
+                        <li class="col-xs-4 hidden" data-achieve="misc" data-p="15" data-img="uml">UML</li>
+                        <li class="col-xs-4 hidden" data-achieve="misc" data-p="7" data-img="markdown">Markdown</li>
+                        <li class="col-xs-4 hidden" data-achieve="misc" data-p="2" data-img="license-fe">基本情報技術者(FE)</li>
+                        <li class="col-xs-4 hidden" data-achieve="misc" data-p="2" data-img="license-ip">ITパスポート(IP)</li>
                         <li class="col-xs-4 hidden" data-achieve="misc" data-p="1" data-img="license-pken2">P検 2級</li>
                         <li class="col-xs-4 hidden" data-achieve="misc" data-p="1" data-img="chocolatey">Chocolatey</li>
                         <li class="col-xs-4 hidden" data-achieve="misc" data-p="1" data-img="nuget">NuGet</li>
