@@ -3,7 +3,7 @@
 $(window).ready(
     function() {
         var achieves = $('#achieve li');
-        achieves.each(console.log);
+        //achieves.each(console.log);
         //console.log('achieves: ', achieves.length);
         //console.log('achieves: ', achieves.data('achieve'));
         //achieves.hide();
