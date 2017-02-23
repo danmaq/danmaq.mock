@@ -7,6 +7,16 @@
 @white: #ffffff;
 @font-stack: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
 
+h1, .display-1, .display-2, .display-3, .display-4
+{
+    font-weight: 100;
+}
+
+h1, h2
+{
+    font-weight: 200;
+}
+
 @media screen and (max-width: 479px)
 {
     .navbar-brand
@@ -93,6 +103,13 @@
         padding-top: 30vh;
     }
 }
+
+.subtitle
+{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
 .card
 {
     border-style: none;
@@ -105,6 +122,10 @@
     h3
     {
         font-size: 1.4rem;
+    }
+    article p
+    {
+        color: #006;
     }
 }
 
@@ -127,7 +148,7 @@ ul#achieve
     i
     {
         color: #666;
-        font-size: 7rem;
+        font-size: 6.8rem;
     }
     .fa-github { color: #323131; }
     .fa-twitter { color: #1DA1F2; }
@@ -143,8 +164,8 @@ ul#achieve
     .fa-free-code-camp { color:#006401; }
     img
     {
-        width: 7rem;
-        height: 7rem;
+        width: 6.8rem;
+        height: 6.8rem;
     }
 }
 
@@ -166,8 +187,27 @@ ul#achieve
 .achieve-graphic { background-color: #99f; }
 
 .card-thc { background-color: @base; }
-.card-atc { background-color: #eeeeee; }
-.card-thm { background-color: #ffffcc; }
+.card-atc
+{
+    background-repeat: no-repeat;
+    background-size: auto 300%;
+    background-image: url("../img/works/atc-rein-ryoko.jpg");
+
+}
+.card-thm
+{
+    background-repeat: no-repeat;
+    background-size: auto 300%;
+    background-image: url("../img/works/thm-jacket.jpg");
+}
 .card-stm { background-color: #ffccbb; }
 
 .hidden { display: none; }
+
+.d-copy
+{
+    background-color: @base;
+    border-top: 0.2rem solid @baseDark;
+    font-size: 80%;
+    padding-top: 1rem;
+}

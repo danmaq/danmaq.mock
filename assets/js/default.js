@@ -28,7 +28,7 @@ const select_subachieve =
             .map(function() { return $(this).data('p'); })
             .get()
             .reduce((p, c) => p + parseInt(c));
-        let rnd = Math.floor(Math.random() * sum);
+        let rnd = Math.round(Math.random() * sum);
         const sub = v => (rnd -= parseInt(v)) <= 0;
         const found =
             acs.filter(function() { return sub($(this).data('p')); });
@@ -50,26 +50,32 @@ const action_subview =
                 '<img alt="' + text + '" title="' + text +
                 '" src="' + burl + e.data('img') +
                 '" width="80" height="80" />');
-        }
-        else if (e.data('i')) {
+        } else if (e.data('i')) {
             e.text('');
             e.removeClass('achieve-text');
             e.append(
                 '<i title="' + text + '" class="fa fa-' + e.data('i') +
                 '" aria-hidden="true"></i>');
-        }
-        else
-        {
+        } else {
             e.addClass('achieve-' + h.k);
         }
+    };
+
+const card_scroll =
+    (wb, sel) => {
+        let q = $(sel);
+        const card_top = q.offset().top;
+        const offset = Math.round((wb - card_top) * 0.7) - 800;
+        console.log(sel, offset);
+        q.css('background-position', 'center ' + offset + 'px');
     };
 
 const on_ready =
     () => {
         $('#achieve li').hide();
         achieves_selected
-        .map(select_subachieve)
-        .forEach(action_subview);
+            .map(select_subachieve)
+            .forEach(action_subview);
     };
 
 const on_scroll =
@@ -84,6 +90,9 @@ const on_scroll =
             nav.removeClass('navbar-dark');
             nav.addClass('navbar-light');
         }
+        const window_bottom = $(this).scrollTop() + $(window).height();
+        card_scroll(window_bottom, '.card-atc');
+        card_scroll(window_bottom, '.card-thm');
     };
 
 $(window).ready(on_ready);
