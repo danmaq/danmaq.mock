@@ -11,16 +11,14 @@ const achieves_shared = [
     'ide', 'misc', 'video', 'graphic'
 ];
 
-const sort_rand = () => Math.random() - 0.5;
 const achieves_fixed =
     achieves_category
     .filter(v => !achieves_shared.includes(v));
 const achieves_selected =
     achieves_shared
-    .sort(sort_rand)
+    .sort(() => Math.random() - 0.5)
     .filter((v, i) => i < 4)
-    .concat(achieves_fixed)
-    .sort(sort_rand);
+    .concat(achieves_fixed);
 
 const select_subachieve =
     v => {
