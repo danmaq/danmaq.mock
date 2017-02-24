@@ -66,7 +66,7 @@ const card_scroll =
         let q = $(sel);
         const card_top = q.offset().top;
         const offset = Math.round((wb - card_top) * 0.7) - 800;
-        console.log(sel, offset);
+        //console.log(sel, offset);
         q.css('background-position', 'center ' + offset + 'px');
     };
 
