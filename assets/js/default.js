@@ -111,7 +111,7 @@ const card_scroll =
         const td = (wt + wh - q.offset().top) / (wh + bh);
         const a = ease_outin_sine(td);
         const offset = (bh + ih) * a - ih;
-        const alpha = Math.min(Math.abs(a - 0.5) * 2.5, 1.0);
+        const alpha = Math.min(Math.abs(a - 0.5) * 3.0, 1.0);
         q.css('background-position', 'center ' + offset + 'px');
         $(sel + ' div').css(
             'background-color', 'rgba(255, 255, 255, ' + alpha + ')');
