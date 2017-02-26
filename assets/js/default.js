@@ -1,5 +1,28 @@
 'use strict;'
 
+const xsw = w => w < 576;
+const smw = w => w < 768 && !xsw(w);
+const mdw = w => w < 992 && !smw(w);
+const lgw = w => w < 1200 && !mdw(w);
+const xlw = w => w >= 1200;
+const losmw = w => xsw(w) || smw(w);
+const lomdw = w => losmw(w) || mdw(w);
+const lolgw = w => lomdw(w) || lgw(w);
+const uplgw = w => xlw(w) || lgw(w);
+const upmdw = w => uplgw(w) || mdw(w);
+const upsmw = w => upmdw(w) || smw(w);
+const xs = () => xsw($(window).width());
+const sm = () => smw($(window).width());
+const md = () => mdw($(window).width());
+const lg = () => lgw($(window).width());
+const xl = () => xlw($(window).width());
+const losm = () => losmw($(window).width());
+const lomd = () => lomdw($(window).width());
+const lolg = () => lolgw($(window).width());
+const uplg = () => uplgw($(window).width());
+const upmd = () => upmdw($(window).width());
+const upsm = () => upsmw($(window).width());
+
 const achieves_category = [
     'vm', 'iaas', 'saas', 'manage', 'backend', 'db',
     'front', 'flash', 'os', 'linux', 'ide', 'gameapi',
@@ -13,12 +36,12 @@ const achieves_shared = [
 
 const card_liiust = '.card-illust';
 const card_shared_list = ['.card-thm', '.card-em', card_liiust];
-const rand_filter =
-    (a, n) => a.sort(() => Math.random() - 0.5).filter((v, i) => i < n);
+const rand_cmp = () => Math.random() - 0.5;
+const rand_filter = (a, n) => a.sort(rand_cmp).filter((v, i) => i < n);
 const card_selected_list = rand_filter(card_shared_list, 2);
 const card_using_illust = card_selected_list.includes(card_liiust);
-const achieves_fixed =
-    achieves_category.filter(v => !achieves_shared.includes(v));
+const list_exclude = (a, b) => a.filter(v => !b.includes(v));
+const achieves_fixed = list_exclude(achieves_category, achieves_shared);
 const achieves_selected =
     rand_filter(achieves_shared, 4).concat(achieves_fixed);
 
@@ -28,8 +51,8 @@ const show_tag =
         e.removeClass('hidden');
     };
 const tag =
-    (name, self, param) => {
-        let r = $('<' + name + (self ? ' />' : '></' + name + '>'));
+    (name, param) => {
+        let r = $('<' + name + '>');
         r.attr(param);
         return r;
     };
@@ -37,7 +60,7 @@ const tag =
 const tag_icon =
     (name, title) => {
         let r =
-            tag('i', false, {
+            tag('i', {
                 'aria-hidden': true,
                 class: 'fa ' + name
             });
@@ -78,7 +101,7 @@ const action_subachieve =
             const burl = './assets/img/achieves/';
             remove_subachieve_text(e);
             const img =
-                tag('img', true, {
+                tag('img', {
                     'alt': text,
                     'title': text,
                     'src': burl + h.k + '/' + e.data('img'),
@@ -113,7 +136,7 @@ const card_scroll =
         const offset = (bh + ih) * a - ih;
         const alpha = Math.min(Math.abs(a - 0.5) * 3.0, 1.0);
         q.css('background-position', 'center ' + offset + 'px');
-        $(sel + ' div').css(
+        $(sel + ' .overcard').css(
             'background-color', 'rgba(255, 255, 255, ' + alpha + ')');
     };
 
@@ -151,9 +174,8 @@ const on_scroll =
         const scr = $(this).scrollTop();
         const wh = window.innerHeight;
         const scroll = n => card_scroll(scr, wh, n);
-        scroll('.card-thc');
-        scroll('.card-atc');
-        card_selected_list.forEach(scroll);
+        const a = card_selected_list.concat(['.card-thc', '.card-atc']);
+        a.forEach(scroll);
     };
 
 const on_ready =
@@ -163,10 +185,41 @@ const on_ready =
         achieves_selected
             .map(select_subachieve)
             .forEach(action_subachieve);
+        on_resized();
     };
 
-const on_resized = on_scroll;
+const show_card_figure =
+    name => {
+        const display = $(name).css('display');
+        const q = $(name + ' figure');
+        if (uplg() && display !== 'none' && q.length) {
+            const t = q.data('type');
+            if (t && !q.children().length) {
+                const params = {
+                    'src': q.data('src'),
+                    'frameborder': 0,
+                    'allowfullscreen': 'allowfullscreen',
+                    'width': 560,
+                    'height': 315
+                };
+                q.append(tag(t, params));
+                if (q.data('guest')) {
+                    const c = { 'class': 'text-xs-right' };
+                    const cap = tag('figcaption', c);
+                    cap.append('※プレイヤーさんのプレイ動画です。');
+                    q.append(cap);
+                }
+            }
+        }
+    };
+
+const on_resized =
+    () => {
+        const a = ['.card-thc', '.card-atc', '.card-thm'];
+        a.forEach(show_card_figure);
+    };
 
 $(on_ready);
 $(window).scroll(on_scroll);
+$(window).resize(on_scroll);
 $(window).resize(on_resized);

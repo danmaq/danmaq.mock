@@ -17,6 +17,12 @@ h1, h2
     font-weight: 200;
 }
 
+h4, h5, h6
+{
+    font-weight: 300;
+    padding-bottom: 1rem;
+}
+
 @media screen and (max-width: 479px)
 {
     .navbar-brand
@@ -106,7 +112,7 @@ h1, h2
 
 .subtitle
 {
-    margin-top: 5rem;
+    margin-top: 8rem;
     margin-bottom: 5rem;
 }
 
@@ -116,41 +122,58 @@ h1, h2
     border: 1px white solid;
     background-repeat: no-repeat;
     background-size: 100% auto;
+    .overcard
+    {
+        border-style: none;
+        min-height: 20rem;
+        padding: 1rem;
+        margin: 0rem;
+        background-color: rgba(255, 255, 255, 0.5);
+        article
+        {
+            min-height: 16rem;
+        }
+        h3
+        {
+            font-size: 1.4rem;
+        }
+        article p
+        {
+            color: #006;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: solid 0.3rem rgba(255, 255, 255, 0.1);
+        }
+        figure *
+        {
+            width: 100%;
+        }
+        figcaption
+        {
+            font-size: 80%;
+        }
+    }
 }
-.card div
+
+.about-card
 {
-    border-style: none;
-    min-height: 20rem;
-    padding: 1rem;
-    margin: 0rem;
-    background-color: rgba(255, 255, 255, 0.5);
     article
     {
-        min-height: 16rem;
+        min-height: 17rem;
     }
-    h3
+    img
     {
-        font-size: 1.4rem;
-    }
-    article p
-    {
-        color: #006;
-        background-color: rgba(255, 255, 255, 0.5);
-        border: solid 0.3rem rgba(255, 255, 255, 0.1);
+        width: 100%;
+        height: auto;
     }
 }
 
-ul.row li
-{
-    list-style-type: none;
-}
-
-ul#achieve
+#achieve
 {
     padding: 0rem;
     li
     {
         min-height: 7rem;
+        list-style-type: none;
     }
     .achieve-text
     {
