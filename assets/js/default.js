@@ -148,18 +148,20 @@ const remove_subskills_text =
     e => e.removeClass('achieve-text').text('');
 
 class SSImage extends STRATEGY.interface {
-    predicate(o) { return o.v.data('img'); }
-    action(o) {
-        const text = o.v.text();
-        const path = MASTER.URI.IMG_SKILLS + o.k + '/'
-        const params = {
+    params(text, path) {
+        return {
             'alt': text,
             'title': text,
-            'src': path + this.predicate(o),
-            'width': 80,
-            'height': 80
+            'src': path,
+            'width': 640,
+            'height': 640
         };
-        remove_subskills_text(o.v).append(TAG.make('img', params));
+    }
+    predicate(o) { return o.v.data('img'); }
+    action(o) {
+        const burl = MASTER.URI.IMG_SKILLS + o.k + '/'
+        const pm = this.params(o.v.text(), burl + this.predicate(o));
+        remove_subskills_text(o.v).append(TAG.make('img', pm));
     }
 }
 
@@ -178,13 +180,9 @@ class SSText extends STRATEGY.interface {
 
 const action_subskills =
     h => {
-        let e = h.v;
-        TAG.show(e);
+        TAG.show(h.v);
         const si = new SSImage();
         const sc = new SSIcon();
-        const text = e.text();
-        const img = e.data('img');
-        const icon = e.data('i');
         if (si.predicate(h)) {
             si.action(h);
         } else if (sc.predicate(h)) {
