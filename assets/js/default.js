@@ -23,6 +23,7 @@ const uplg = () => uplgw($(window).width());
 const upmd = () => upmdw($(window).width());
 const upsm = () => upsmw($(window).width());
 
+const MSG_PLAYER = '※プレイヤーさんのプレイ動画です。';
 const achieves_category = [
     'vm', 'iaas', 'saas', 'manage', 'backend', 'db',
     'front', 'flash', 'os', 'linux', 'ide', 'gameapi',
@@ -44,26 +45,12 @@ const list_exclude = (a, b) => a.filter(v => !b.includes(v));
 const achieves_fixed = list_exclude(achieves_category, achieves_shared);
 const achieves_selected =
     rand_filter(achieves_shared, 4).concat(achieves_fixed);
-
-const show_tag =
-    e => {
-        e.show();
-        e.removeClass('hidden');
-    };
-const tag =
-    (name, param) => {
-        let r = $('<' + name + '>');
-        r.attr(param);
-        return r;
-    };
+const show_tag = e => e.removeClass('hidden').show();
+const tag = (name, param) => $('<' + name + '>').attr(param);
 
 const tag_icon =
     (name, title) => {
-        let r =
-            tag('i', {
-                'aria-hidden': true,
-                class: 'fa ' + name
-            });
+        let r = tag('i', { 'aria-hidden': true,  class: 'fa ' + name });
         if (title !== undefined) {
             r.attr('title', title);
         }
@@ -87,10 +74,7 @@ const select_subachieve =
     };
 
 const remove_subachieve_text =
-    e => {
-        e.text('');
-        e.removeClass('achieve-text');
-    };
+    e => e.removeClass('achieve-text').text('');
 
 const action_subachieve =
     h => {
@@ -187,7 +171,6 @@ const on_ready =
             .forEach(action_subachieve);
         on_resized();
     };
-
 const show_card_figure =
     name => {
         const display = $(name).css('display');
@@ -206,7 +189,7 @@ const show_card_figure =
                 if (q.data('guest')) {
                     const c = { 'class': 'text-xs-right' };
                     const cap = tag('figcaption', c);
-                    cap.append('※プレイヤーさんのプレイ動画です。');
+                    cap.append(MSG_PLAYER);
                     q.append(cap);
                 }
             }
