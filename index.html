@@ -1,1 +1,365 @@
-Hello,world!
+<!DOCTYPE html>
+<!--[if lt IE 7]><html lang="ja" class="no-js ie6"><![endif]-->
+<!--[if IE 7]><html lang="ja" class="no-js ie7"><![endif]-->
+<!--[if IE 8]><html lang="ja" class="no-js ie8"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="ja" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
+    <meta name="description" content="danmaq は、東方・ボカロおよびオリジナルを中心に、ゲームなど様々なコンテンツを提供する同人ブランドです。" />
+    <meta name="keywords" content="Touhou CtC, Concealed the Conclusion" />
+    <title>danmaq</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw" crossorigin="anonymous">
+    <link rel="stylesheet/less" type="text/css" href="./assets/less/style.less" />
+    <!--[if IE]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/6.1.19/browser.min.js" async="async"></script>
+    <![endif]-->
+
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js" async="async"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" async="async"></script>
+    <![endif]-->
+</head>
+
+<body data-spy="scroll" data-target="#scroll-spy">
+    <header id="scroll-spy">
+        <nav class="navbar navbar-dark bg-faded navbar-fixed-top navbar-expand">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand"><img src="./assets/img/logo2012W.svg" class="logo-large animated fadeIn" alt="danmaq" width="150" height="50" /></a>
+                <button class="navbar-toggler hidden-md-up float-xs-right collapsed" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
+                <div class="clearfix hidden-md-up"></div>
+                <!-- fix navbar responsive bug -->
+                <div class="collapse navbar-toggleable-sm" id="navbar-header">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item"><a href="#works" class="nav-link">Works</a></li>
+                        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="#column" class="nav-link">Column</a></li>
+                    </ul>
+
+                    <div class="form-inline float-xs-right">
+                        <a href="https://twitter.com/intent/tweet?url=https://danmaq.com/&amp;text=danmaq%20%E3%81%AF%E3%80%81%E6%9D%B1%E6%96%B9%E3%83%BB%E3%83%9C%E3%82%AB%E3%83%AD%E3%81%8A%E3%82%88%E3%81%B3%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%92%E4%B8%AD%E5%BF%83%E3%81%AB%E3%80%81%E3%82%B2%E3%83%BC%E3%83%A0%E3%81%AA%E3%81%A9%E6%A7%98%E3%80%85%E3%81%AA%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%E3%82%92%E6%8F%90%E4%BE%9B%E3%81%99%E3%82%8B%E5%90%8C%E4%BA%BA%E3%83%96%E3%83%A9%E3%83%B3%E3%83%89%E3%81%A7%E3%81%99%E3%80%82"
+                            target="_blank" class="btn btn-twitter" title="Tweet"><i class="fa fa-twitter fa-lg"></i></a>
+                        <a href="http://www.facebook.com/sharer.php?u=https://danmaq.com/" target="_blank" class="btn btn-facebook" title="Share"><i class="fa fa-facebook fa-lg"></i></a>
+                        <a href="javascript:window.open('http://b.hatena.ne.jp/add?mode=confirm&amp;is_bm=1&amp;title='+escape(document.title)+'&amp;url='+escape(location.href),%20'_blank',%20'width=520,height=600,resizable=1,scrollbars=1');undefined;" target="_blank" class="btn btn-hatebu"
+                            title="Hatena"><i class="fa fa-hatebu fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 outline text-xs-center">
+                    <h1 class="display-4 jumbotron-h1">Creating, and Sharing.</h1>
+                    <p>&ldquo;danmaq&rdquo; は、たった今も明日の&ldquo;楽しい&rdquo;を考えています。</p>
+                    <p><a class="btn btn-primary btn-lg" href="#works" role="button">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 subtitle text-xs-center">
+                    <h2 id="works">Works</h2>
+                    <p>私たち &ldquo;danmaq&rdquo; のこれまでの活動を、4つの作品でご紹介します。</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card card-thc col-lg-12 col-md-6">
+                    <div class="overcard row">
+                        <div class="col-lg-5 col-xs-12">
+                            <article>
+                                <h3>東方夢終劇<br /><small> - Concealed the Conclusion</small></h3>
+                                <p>東方の悲しい物語。避けられぬ幻想郷最期の日を描いた、東方二次創作STG。突然の失踪を遂げた霊夢。幻想郷が徐々に朽ち始めて行く中、魔理沙は霊夢を見つけるため一人飛び立つ。</p>
+                            </article>
+                            <p><a class="btn btn-primary btn-lg" href="" role="button">Learn more</a></p>
+                        </div>
+                        <figure class="col-lg-7 hidden-md-down" data-type="iframe" data-src="https://www.youtube.com/embed/TLV-l93_h2Y?controls=0&amp;rel=0" data-guest="true">
+                        </figure>
+                    </div>
+                </div>
+                <div class="card card-atc col-lg-12 col-md-6">
+                    <div class="overcard row">
+                        <div class="col-lg-5 col-xs-12">
+                            <article>
+                                <h3>Answer the Conclusion</h3>
+                                <p>東方夢終劇の後日譚。幻想郷が消えた後の世界。妖怪たちの奇跡で郷の記憶を宿した少女が、幻想郷のキーとなる人物に出会う。東方×オリジナルなスピンオフ物語。</p>
+                            </article>
+                            <p><a class="btn btn-primary btn-lg" href="" role="button">Learn more</a></p>
+                        </div>
+                        <figure class="col-lg-7 hidden-md-down" data-type="iframe" data-src="https://www.youtube.com/embed/NmR9EevRMJc?controls=0&amp;showinfo=0&amp;rel=0">
+                        </figure>
+                    </div>
+                </div>
+                <div class="card card-thm col-lg-12 col-md-6">
+                    <div class="overcard row">
+                        <div class="col-lg-5 col-xs-12">
+                            <article>
+                                <h3>結界幻想録 鏡<br /><small> - Mythical mirror</small></h3>
+                                <p>幻想郷のようでどこか違う。そんな不思議な世界に紛れ込んだいつもの妖怪たち。迫り来る敵どもに、場所は違えど大暴れ！オリジナルキャラも登場する、東方二次創作STG。</p>
+                            </article>
+                            <p><a class="btn btn-primary btn-lg" href="" role="button">Learn more</a></p>
+                        </div>
+                        <figure class="col-lg-7 hidden-md-down" data-type="iframe" data-src="https://www.youtube.com/embed/gW9yBVNVmKI?start=38&amp;controls=0&amp;rel=0" data-guest="true">
+                        </figure>
+                    </div>
+                </div>
+                <div class="card card-em col-lg-12 col-md-6">
+                    <div class="overcard row">
+                        <div class="col-lg-5 col-xs-12">
+                            <article>
+                                <h3>EVIL MAGIC<br /><small> - 邪の魔術</small></h3>
+                                <p>不思議な能力が使える女の子エナとその弟と幼馴染は村の悪ガキ三人組として有名。しかしもっと悪いやつ、領主に幼馴染が攫われてしまい、館でも彼女らが大暴れ！ただの勧善懲悪では終わらない、新感覚のオリジナル物語！</p>
+                            </article>
+                            <p><a class="btn btn-primary btn-lg" href="" role="button">Learn more</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-illust hidden col-lg-12 col-md-6" data-cat="illust" data-max="4">
+                    <div class="overcard row">
+                        <div class="col-lg-5 col-xs-12">
+                            <article>
+                                <h3>イラスト活動</h3>
+                                <p>他にも、東方やVOCALOID、あるいはオリジナルなど様々なジャンルのイラスト制作活動も行なっています。Pixiv で過去のイラストを掲載しています。</p>
+                            </article>
+                            <p><a class="btn btn-primary btn-lg" href="https://pixiv.me/danmaq" role="button" target="_blank">Go to Pixiv</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-xs-center subtitle">
+                    <h2 id="about">About</h2>
+                    <p>私たちは、<em>&ldquo;創る&rdquo;</em> と <em>&ldquo;共有する&rdquo;</em> に特化した、ゲーム制作サークルです。</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="about-card col-sm-6">
+                    <article>
+                        <h3>創る<small> - Creating</small></h3>
+                        <p>東方やボカロ、あるいはオリジナルの作品を作っています。作品は Web に随時公開、およびコミックマーケットや同人書店で頒布いたします。</p>
+                        <h4>最近の活動記録</h4>
+                        <ul>
+                            <li>2016/12 コミックマーケット91</li>
+                            <li>2016/1 デジゲー博SPECIAL in 闘会議2016</li>
+                            <li>2015/12 コミックマーケット89</li>
+                            <li>ほか多数</li>
+                        </ul>
+                    </article>
+                    <figure>
+                        <img src="./assets/img/photos/comiket.jpg" alt="" width="320" height="240" />
+                    </figure>
+                </div>
+                <div class="about-card col-sm-6">
+                    <article>
+                        <h3>共有する<small> - Sharing</small></h3>
+                        <p>作品制作のノウハウや世界観、そしてちょっとした制作のための心意気などをあなたに共有いたします。</p>
+                        <p>具体的には、ニコ生などのライブ放送での活動のほか、オフラインでの定期交流会、そして初心者向けのゲームアプリ制作勉強会なども開催しております。</p>
+                    </article>
+                    <figure>
+                        <img src="./assets/img/photos/workshop.jpg" alt="" width="320" height="240" />
+                    </figure>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 text-xs-center subtitle">
+                    <h3>メンバー紹介</h3>
+                    <p>サークル結成以来、プロジェクトごとに都度最高のチームを揃えて、完成したら解散、という形式で活動しています。<br />そのため固定メンバーは &ldquo;まく&rdquo; 一人です。</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <h3><ruby>Mc<rp>(</rp><rt>まく</rt><rp>)</rp></ruby><small> / Shuhei Nomura</small></h3>
+                    <p>本職はフリーのプログラマー 兼 技術者養成講師。元々一人でゲームを作れるようになりたい、と足掻いているうちに、気付けば何でも屋になっていた。今後はWebとスマホ/PCアプリ制作、およびそれを教える活動に絞っていくつもり。</p>
+                    <figure>
+                        <img src="./assets/img/photos/enna.jpg" alt="" width="320" height="320" />
+                    </figure>
+                </div>
+                <div class="col-md-7">
+                    <h4>主なスキル</h4>
+                    <ul class="row" id="achieve">
+                        <li class="col-xs-4 achieve-text" data-achieve="vm" data-p="12" data-img="docker.svg">docker</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="vm" data-p="10" data-img="ansible.svg">Ansible</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="vm" data-p="8" data-img="docker-compose.png">docker-compose</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="vm" data-p="5" data-img="vagrant.svg">Vagrant</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="vm" data-p="2" data-img="parallels.svg">Parallels</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="vm" data-p="1" data-img="virtualbox.svg">VirtualBox</li>
+                        <li class="col-xs-4 achieve-text" data-achieve="iaas" data-p="20" data-img="sakura-vps.svg">SAKURA VPS</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="iaas" data-p="10" data-img="xserver.svg">XSERVER</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="iaas" data-p="3" data-img="sakura-cloud.svg">SAKURA CLOUD</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="iaas" data-p="1" data-ing="sppd.svg">SPPD Managed Server</li>
+                        <li class="col-xs-4 achieve-text" data-achieve="saas" data-p="20" data-img="opensocial.svg">OpenSocial</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="saas" data-p="20" data-img="wercker.svg">wercker</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="saas" data-p="9" data-i="github">GitHub</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="saas" data-p="6" data-img="office365.svg">Microsoft Office 365</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="saas" data-p="3" data-i="twitter">Twitter</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="saas" data-p="2" data-img="chatwork.svg">chatwork</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="saas" data-p="1" data-img="gitter.svg">gitter</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="saas" data-p="1" data-i="slack">slack</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="saas" data-p="1" data-i="facebook-official">Facebook</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="saas" data-p="1" data-img="mixi.svg">mixi</li>
+                        <li class="col-xs-4 achieve-text" data-achieve="manage" data-p="20" data-img="jenkins.svg">Jenkins</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="manage" data-p="18" data-img="redmine.svg">Redmine</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="manage" data-p="15" data-i="wordpress">WordPress</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="manage" data-p="8" data-img="Trac.svg">Trac</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="manage" data-p="7" data-img="msproject.svg">Microsoft Project</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="manage" data-p="6" data-i="git">Git</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="manage" data-p="2" data-img="subversion.svg">Subversion</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="manage" data-p="1" data-ing="pukiwiki.svg">PukiWiki</li>
+                        <li class="col-xs-4 achieve-text" data-achieve="backend" data-p="20" data-img="jekyll.svg">Jekyll</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="backend" data-p="20" data-img="meteor.svg">Meteor</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="backend" data-p="15" data-img="php.svg">PHP</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="backend" data-p="12" data-img="nginx.svg">NGINX</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="backend" data-p="10" data-img="imagick.svg">Image Magick</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="backend" data-p="8" data-img="perl.svg">Perl</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="backend" data-p="7" data-img="apache.svg">Apache HTTP Server</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="backend" data-p="2" data-img="tomcat.svg">Apache Tomcat</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="backend" data-p="1" data-img="java.svg">ORACLE Java</li>
+                        <li class="col-xs-4 achieve-text" data-achieve="db" data-p="5" data-img="mongodb.svg">MongoDB</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="db" data-p="4" data-img="sqlite.svg">SQLite</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="db" data-p="3" data-img="mariadb.svg">MariaDB</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="db" data-p="3" data-img="mysql.svg">ORACLE MySQL</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="db" data-p="1" data-img="postgresql.svg">PostgreSQL</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="db" data-p="1" data-img="access.svg">Microsoft Access</li>
+                        <li class="col-xs-4 achieve-text" data-achieve="front" data-p="3" data-img="bootstrap.svg">bootstrap</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="front" data-p="3" data-img="backbone.svg">BACKBONE.js</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="front" data-p="3" data-img="typescript.svg">TypeScript</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="front" data-p="2" data-img="jquery.svg">jQuery</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="front" data-p="2" data-i="html5">HTML</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="front" data-p="2" data-img="less.svg">LESS</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="front" data-p="2" data-img="javascript.svg">JavaScript</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="front" data-p="1" data-i="css3">CSS</li>
+                        <li class="col-xs-4 achieve-text" data-achieve="flash" data-p="3" data-img="flex.svg">Apache Flex</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="flash" data-p="2" data-img="adobe-an.svg">Adobe Animate</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="flash" data-p="1" data-img="flash.svg">Adobe Flash</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="flash" data-p="1" data-ing="actionscript.svg">ActionScript</li>
+                        <li class="col-xs-4 achieve-text" data-achieve="os" data-p="20" data-img="iphone.svg">iOS</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="os" data-p="20" data-i="android">Android</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="os" data-p="12" data-i="windows">Windows</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="os" data-p="10" data-img="macos.svg">macOS</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="os" data-p="5" data-img="cardboard.svg">Cardboard</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="os" data-p="2" data-img="freebsd.svg">FreeBSD</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="os" data-p="2" data-ing="aix.svg">IBM AIX</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="os" data-p="2" data-img="i-mode.svg">i-mode</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="os" data-p="2" data-img="ezweb.svg">EzWeb</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="os" data-p="1" data-img="xbox.svg">Xbox 360</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="os" data-p="1" data-img="nintendo-ds.svg">Nintendo DS</li>
+                        <li class="col-xs-4 achieve-text" data-achieve="linux" data-p="2" data-i="linux">Linux</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="linux" data-p="2" data-img="atomic-host.svg">Atomic Host</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="linux" data-p="2" data-img="alpine.svg">Alpine Linux</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="linux" data-p="2" data-img="ubuntu.svg">Ubuntu</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="linux" data-p="2" data-img="centos.svg">CentOS</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="linux" data-p="1" data-img="coreos.svg">CoreOS</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="linux" data-p="1" data-img="fedora.svg">Fedora</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="linux" data-p="1" data-img="debian.svg">Debian GNU/Linux</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="linux" data-p="1" data-img="opensuse.svg">OpenSUSE</li>
+                        <li class="col-xs-4 achieve-text" data-achieve="ide" data-p="12" data-img="visualstudio.svg">VisualStudio</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="ide" data-p="10" data-img="adobe-fb.svg">Adobe Flash Builder</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="ide" data-p="7" data-img="xcode.svg">Xcode</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="ide" data-p="5" data-img="eclipse.svg">Eclipse</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="ide" data-p="1" data-ing="codewarrior.svg">CodeWarrior</li>
+                        <li class="col-xs-4 achieve-text" data-achieve="gameapi" data-p="10" data-img="unity3d.svg">Unity 3D</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="gameapi" data-p="8" data-img="air.svg">Adobe AIR</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="gameapi" data-p="7" data-img="monogame.svg">monoGame</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="gameapi" data-p="6" data-img="xna.svg">Microsoft XNA</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="gameapi" data-p="5" data-img="xamarin.svg">Xamarin</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="gameapi" data-p="3" data-img="cocos2d-x.png">cocos2d-x</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="gameapi" data-p="2" data-img="directx.svg">DirectX</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="gameapi" data-p="1" data-ing="hsp.svg">HSP</li>
+                        <li class="col-xs-4 achieve-text" data-achieve="lang" data-p="3" data-img="fsharp.svg">F#</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="lang" data-p="2" data-img="xaml.svg">XAML</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="lang" data-p="2" data-img="csharp.svg">C#</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="lang" data-p="2" data-img="mql4.svg">MQL4</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="lang" data-p="1" data-img="cpp.svg">C++</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="lang" data-p="1" data-img="qt.svg">Qt Quick</li>
+                        <li class="col-xs-4 achieve-text" data-achieve="misc" data-p="20" data-i="free-code-camp">freecodecamp</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="20" data-img="powershell.svg">PowerShell</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="16" data-img="uml.svg">UML</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="8" data-img="arduino.svg">Arduino</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="7" data-img="markdown.svg">Markdown</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="3" data-img="raspberry-pi.svg">Raspberry Pi</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="2" data-ing="license-fe.svg">基本情報技術者(FE)</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="2" data-img="license-ip.svg">ITパスポート(IP)</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="1" data-img="license-pken.svg">P検 2級</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="1" data-img="avr.svg">AMTEL AVR</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="1" data-ing="chocolatey.svg">Chocolatey</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="1" data-img="nuget.svg">NuGet</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="1" data-img="minecraft.svg">Minecraft</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="1" data-img="danmakufu.png">東方弾幕風</li>
+                        <li class="col-xs-4 achieve-text" data-achieve="video" data-p="20" data-img="adobe-ae.svg">Adobe AfterEffects</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="video" data-p="12" data-img="imovie.svg">iMovie</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="video" data-p="2" data-img="aviutl.svg">AviUtl</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="video" data-p="2" data-img="nive.svg">NiVE</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="video" data-p="1" data-ing="soundengine.svg">Sound Engine Free</li>
+                        <li class="col-xs-4 achieve-text" data-achieve="graphic" data-p="20" data-img="metasequoia.svg">Metasequoia</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="graphic" data-p="20" data-img="adobe-fw.svg">Adobe Fireworks</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="graphic" data-p="12" data-img="blender.svg">blender</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="graphic" data-p="5" data-img="adobe-ps.svg">Adobe Photoshop</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="graphic" data-p="3" data-ing="optpix.svg">WebTechnology OPTPiX</li>
+                        <li class="col-xs-4 achieve-text hidden" data-achieve="graphic" data-p="1" data-ing="pixia.svg">Pixia</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="col-xs-12 text-xs-center subtitle">
+                <h2 id="contact">Contact</h2>
+                <p>最新の活動状況は Twitter で配信中です。ほか SNS でも定期的に活動しています。</p>
+            </div>
+            <div class="col-xs-12 text-xs-center">
+                <ul>
+                    <li><a href="https://twitter.com/danmaq">Twitter</a></li>
+                    <li><a href="http://com.nicovideo.jp/community/co2711221">ニコニコミュニティ</a></li>
+                    <li><a href="http://pixiv.me/danmaq">Pixiv</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="col-xs-12 text-xs-center subtitle">
+                <h2 id="column">Column</h2>
+                <p>Underconstruction.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="container-fluid text-xs-center d-copy">
+        <div class="row">
+            <p class="col-xs-12">
+                &ldquo;danmaq&rdquo; は DAYS PRODUCTION が運営する、同人ブランドです。<br>
+                <i class="fa fa-copyright" aria-hidden="true"></i> 1999-2017 danmaq / DAYS PRODUCTION All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Libs -->
+    <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js" integrity="sha384-tNVWZNCzgnTSr8HLSfGS6L7pO03KOgRXJsprbx6bitch1BMri1brpoPxtyY4pDqn" crossorigin="anonymous" async="async"></script>
+    <script type="application/javascript" src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous" async="async"></script>
+    <script type="application/javascript" src="./assets/js/bootstrap.min.js" async="async"></script>
+    <script type="application/javascript" src="./assets/js/default.js" async="async"></script>
+</body>
+
+</html>
