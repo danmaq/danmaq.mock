@@ -17,11 +17,7 @@ Object.freeze(STRATEGY);
 
 // ========================================================
 // bootstrap 向け幅検出モジュール
-const WIDTH = {};
-WIDTH.XSSM = 576;
-WIDTH.SMMD = 768;
-WIDTH.MDLG = 992;
-WIDTH.LGXL = 1200;
+const WIDTH = { XSSM: 576, SMMD: 768, MDLG: 992, LGXL: 1200 };
 WIDTH.xsw = w => w < WIDTH.XSSM;
 WIDTH.smw = w => w < WIDTH.SMMD && w >= WIDTH.XSSM;
 WIDTH.mdw = w => w < WIDTH.MDLG && w >= WIDTH.SMMD;
@@ -143,39 +139,34 @@ Object.freeze(MASTER);
 
 // ========================================================
 // メインロジック
-const remove_subskills_text =
-    e => e.removeClass('achieve-text').text('');
-
-class SSCommon extends STRATEGY.interface {
-    removeText(o) {
-        o.v.removeClass('achieve-text').text('');
-    }
-}
+const SS = {
+    removeText: q => q.removeClass('achieve-text').text('')
+};
 
 class SSImage extends STRATEGY.interface {
-    params(text, path) {
+    params(title, path, size) {
         return {
-            'alt': text,
-            'title': text,
+            'alt': title,
+            'title': title,
             'src': path,
-            'width': 640,
-            'height': 640
+            'width': size,
+            'height': size
         };
+    }
+    path(o) {
+        return MASTER.URI.IMG_SKILLS + o.k + '/' + this.predicate(o);
     }
     predicate(o) { return o.v.data('img'); }
     action(o) {
-        const burl = MASTER.URI.IMG_SKILLS + o.k + '/'
-        const pm = this.params(o.v.text(), burl + this.predicate(o));
-        remove_subskills_text(o.v).append(TAG.make('img', pm));
+        const params = this.params(o.v.text(), this.path(o), 640);
+        SS.removeText(o.v).append(TAG.make('img', params));
     }
 }
 
 class SSIcon extends STRATEGY.interface {
+    icon(o) { return TAG.icon('fa-' + this.predicate(o), o.v.text()); }
     predicate(o) { return o.v.data('i'); }
-    action(o) {
-        remove_subskills_text(o.v)
-            .append(TAG.icon('fa-' + this.predicate(o), o.v.text()));
-    }
+    action(o) { SS.removeText(o.v).append(this.icon(o)); }
 }
 
 class SSText extends STRATEGY.interface {
@@ -183,20 +174,20 @@ class SSText extends STRATEGY.interface {
     action(o) { o.v.addClass('achieve-' + o.k); }
 }
 
-const strategies = [ new SSImage(), new SSIcon(), new SSText() ];
-
-const select_subskills =
-    v => {
-        const skills = $('#achieve li[data-achieve="' + v + '"]');
-        const q = TAG.weightChoice(skills, q => parseInt(q.data('p')));
-        return { k: v, v: q };
-    };
-
-const action_subskills =
+SS.STRATEGIES = [new SSImage(), new SSIcon(), new SSText()];
+SS.selector = v => '#achieve li[data-achieve="' + v + '"]';
+SS.weight = q => parseInt(q.data('p'));
+SS.select =
+    v => ({
+        k: v,
+        v: TAG.weightChoice($(SS.selector(v)), SS.weight)
+    });
+SS.show =
     h => {
         TAG.show(h.v);
-        STRATEGY.run(strategies, h);
+        STRATEGY.run(SS.STRATEGIES, h);
     };
+Object.freeze(SS);
 
 const calc_card_height = w => w / MASTER.WORKS.BG_AS;
 
@@ -254,8 +245,8 @@ const on_ready =
         select_card();
         $('#achieve li').hide();
         MASTER.SKILLS.AVAILS
-            .map(select_subskills)
-            .forEach(action_subskills);
+            .map(SS.select)
+            .forEach(SS.show);
         on_resized();
     };
 const show_card_figure =
