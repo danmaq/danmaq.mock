@@ -5,7 +5,13 @@ const STRATEGY = {
         predicate(o) {}
         action(o) {}
     },
-    run: (l, o) => l.forEach(s.predicate(o) ? action(o) : (() => {})())
+    run:
+        (l, o) => {
+            const s = l.find(s => s.predicate(o));
+            if (s !== undefined) {
+                s.action(o);
+            }
+        }
 };
 Object.freeze(STRATEGY);
 
@@ -178,18 +184,12 @@ class SSText extends STRATEGY.interface {
     action(o) { o.v.addClass('achieve-' + o.k); }
 }
 
+const strategies = [ new SSImage(), new SSIcon(), new SSText() ];
+
 const action_subskills =
     h => {
         TAG.show(h.v);
-        const si = new SSImage();
-        const sc = new SSIcon();
-        if (si.predicate(h)) {
-            si.action(h);
-        } else if (sc.predicate(h)) {
-            sc.action(h);
-        } else {
-            new SSText().action(h);
-        }
+        STRATEGY.run(strategies, h);
     };
 
 const calc_card_height = w => w / MASTER.WORKS.BG_AS;
