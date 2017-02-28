@@ -143,15 +143,14 @@ Object.freeze(MASTER);
 
 // ========================================================
 // メインロジック
-const select_subskills =
-    v => {
-        const skills = $('#achieve li[data-achieve="' + v + '"]');
-        const q = TAG.weightChoice(skills, q => parseInt(q.data('p')));
-        return { k: v, v: q };
-    };
-
 const remove_subskills_text =
     e => e.removeClass('achieve-text').text('');
+
+class SSCommon extends STRATEGY.interface {
+    removeText(o) {
+        o.v.removeClass('achieve-text').text('');
+    }
+}
 
 class SSImage extends STRATEGY.interface {
     params(text, path) {
@@ -185,6 +184,13 @@ class SSText extends STRATEGY.interface {
 }
 
 const strategies = [ new SSImage(), new SSIcon(), new SSText() ];
+
+const select_subskills =
+    v => {
+        const skills = $('#achieve li[data-achieve="' + v + '"]');
+        const q = TAG.weightChoice(skills, q => parseInt(q.data('p')));
+        return { k: v, v: q };
+    };
 
 const action_subskills =
     h => {
