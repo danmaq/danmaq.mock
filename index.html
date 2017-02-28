@@ -330,7 +330,18 @@
                 <ul>
                     <li>
                         <a href="https://twitter.com/intent/tweet?screen_name=danmaq" class="twitter-mention-button" data-size="large" data-related="danmaq" data-dnt="true">Tweet to @danmaq</a>
-                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                        <script>
+                            ! function(d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0],
+                                    p = /^http:/.test(d.location) ? 'http' : 'https';
+                                if (!d.getElementById(id)) {
+                                    js = d.createElement(s);
+                                    js.id = id;
+                                    js.src = p + '://platform.twitter.com/widgets.js';
+                                    fjs.parentNode.insertBefore(js, fjs);
+                                }
+                            }(document, 'script', 'twitter-wjs');
+                        </script>
                     </li>
                     <li><a class="btn btn-primary btn-sm" href="" role="button">Twitter ではなく、メールでの返信を希望します</a></li>
                 </ul>
@@ -380,7 +391,7 @@
     <!-- Libs -->
     <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js" integrity="sha384-tNVWZNCzgnTSr8HLSfGS6L7pO03KOgRXJsprbx6bitch1BMri1brpoPxtyY4pDqn" crossorigin="anonymous" async="async"></script>
     <script type="application/javascript" src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous" async="async"></script>
+    <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script type="application/javascript" src="./assets/js/bootstrap.min.js" async="async"></script>
     <script type="application/javascript" src="./assets/js/default.js" async="async"></script>
 </body>

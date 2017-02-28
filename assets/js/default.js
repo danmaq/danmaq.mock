@@ -44,21 +44,23 @@ Object.freeze(WIDTH);
 
 // ========================================================
 // 算術補助モジュール
-const MATH = {};
-MATH.easeISine = t => 1.0 - Math.cos(t * Math.PI * 0.5);
+const MATH = {
+    randI: (l, f) => (f ? Math.floor : Math.round)(Math.random() * l),
+    rndCmp: () => Math.random() - 0.5,
+    easeISine: t => 1.0 - Math.cos(t * Math.PI * 0.5)
+};
 MATH.easeOISine =
     a => a < 0.5 ? 0.5 * (1 - MATH.easeISine(1 - 2 * a)) :
     0.5 * MATH.easeISine(a * 2 - 1) + 0.5;
-MATH.randI = (l, f) => (f ? Math.floor : Math.round)(Math.random() * l);
-MATH.rndCmp = () => Math.random() - 0.5;
 Object.freeze(MATH);
 
 // ========================================================
 // 配列補助モジュール
-const LIST = {};
-LIST.rndChoice = (a, n) => a.sort(MATH.rndCmp).filter((v, i) => i < n);
-LIST.exclude = (a, b) => a.filter(v => !b.includes(v));
-LIST.sum = a => a.reduce((p, c) => p + parseInt(c));
+const LIST = {
+    rndChoice: (a, n) => a.sort(MATH.rndCmp).filter((v, i) => i < n),
+    exclude: (a, b) => a.filter(v => !b.includes(v)),
+    sum: a => a.reduce((p, c) => p + parseInt(c))
+};
 Object.freeze(LIST);
 
 // ========================================================
@@ -84,9 +86,11 @@ Object.freeze(TAG);
 
 // ========================================================
 // CSS補助モジュール
-const CSS = {};
-CSS.rgba =
-    (r, g, b, a) => 'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
+const CSS = {
+    rgba: (r, g, b, a) =>
+        'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')'
+};
+CSS.whiteA = a => CSS.rgba(255, 255, 255, a)
 Object.freeze(CSS);
 
 // ========================================================
@@ -138,13 +142,13 @@ MASTER.WORKS.USE_ILLUST =
 Object.freeze(MASTER);
 
 // ========================================================
-// メインロジック
+// 主なスキルをランダムで選択するロジック
 const SS = {
     removeText: q => q.removeClass('achieve-text').text('')
 };
 
 class SSImage extends STRATEGY.interface {
-    params(title, path, size) {
+    static params(title, path, size) {
         return {
             'alt': title,
             'title': title,
@@ -158,7 +162,7 @@ class SSImage extends STRATEGY.interface {
     }
     predicate(o) { return o.v.data('img'); }
     action(o) {
-        const params = this.params(o.v.text(), this.path(o), 640);
+        const params = SSImage.params(o.v.text(), this.path(o), 640);
         SS.removeText(o.v).append(TAG.make('img', params));
     }
 }
@@ -187,22 +191,34 @@ SS.show =
         TAG.show(h.v);
         STRATEGY.run(SS.STRATEGIES, h);
     };
+// USING jQuery   
+SS.deploy =
+    () => MASTER.SKILLS.AVAILS.map(SS.select).forEach(SS.show);
 Object.freeze(SS);
 
-const calc_card_height = w => w / MASTER.WORKS.BG_AS;
-
+// ========================================================
+// 主な作品を背景スクロールするロジック
+const WORKS = {
+    alpha: a => Math.min(Math.abs(a - 0.5) * 3.0, 1.0),
+    size: q =>
+        ({ h: q.outerHeight(), w: q.outerWidth(), t: q.offset().top })
+};
+WORKS.offsetAndBGColor =
+    (wt, wh, q) => {
+        const rc = WORKS.size(q);
+        const bgh = rc.w / MASTER.WORKS.BG_AS;
+        const a = MATH.easeOISine((wt + wh - rc.t) / (wh + rc.h));
+        return {
+            o: (rc.h + bgh) * a - bgh,
+            c: CSS.whiteA(WORKS.alpha(a))
+        };
+    };
 const card_scroll =
     (wt, wh, sel) => {
         let q = $(sel);
-        const bh = q.outerHeight();
-        const ih = calc_card_height(q.outerWidth());
-        const td = (wt + wh - q.offset().top) / (wh + bh);
-        const a = MATH.easeOISine(td);
-        const offset = (bh + ih) * a - ih;
-        const alpha = Math.min(Math.abs(a - 0.5) * 3.0, 1.0);
-        q.css('background-position', 'center ' + offset + 'px');
-        $(sel + ' .overcard').css(
-            'background-color', CSS.rgba(255, 255, 255, alpha));
+        let data = WORKS.offsetAndBGColor(wt, wh, q);
+        q.css('background-position', 'center ' + data.o + 'px');
+        $(sel + ' .overcard').css('background-color', data.c);
     };
 
 const toggle_class =
@@ -244,9 +260,7 @@ const on_ready =
     () => {
         select_card();
         $('#achieve li').hide();
-        MASTER.SKILLS.AVAILS
-            .map(SS.select)
-            .forEach(SS.show);
+        SS.deploy();
         on_resized();
     };
 const show_card_figure =
