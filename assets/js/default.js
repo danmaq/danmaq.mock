@@ -93,7 +93,8 @@ const CSS = {
         'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')',
     url: u => 'url(' + u + ')',
     whiteA: a => '',
-    toggleClass: (q, cond, asTrue, asFalse) => {}
+    toggleClass: (q, cond, asTrue, asFalse) => {},
+    isDisplay: q => q.css('display') !== 'none'
 };
 CSS.whiteA = a => CSS.rgba(255, 255, 255, a)
 CSS.toggleClass =
@@ -249,7 +250,42 @@ WORKS.select =
         MASTER.WORKS.AVAILS.forEach(v => TAG.show($(v)));
         WORKS.selectIllust();
     };
+WORKS.selectAll =
+    s =>
+    MASTER.WORKS.AVAILS_ALL.forEach(
+        n => WORKS.scroll(s, innerHeight, n));
+WORKS.paramYoutube =
+    s => ({
+        'src': s,
+        'frameborder': 0,
+        'allowfullscreen': 'allowfullscreen',
+        'width': 560,
+        'height': 315
+    });
+WORKS.guestCaption =
+    () => {
+        const c = { 'class': 'text-xs-right' };
+        const cap = TAG.make('figcaption', c);
+        return cap.append(MASTER.MSG.PLAYER);
+    };
+WORKS.showFigure =
+    name => {
+        const q = $(name + ' figure');
+        if (WIDTH.uplg() && CSS.isDisplay($(name)) && q.length) {
+            const t = q.data('type');
+            if (t && !q.children().length) {
+                const params = WORKS.paramYoutube(q.data('src'));
+                if (q.append(TAG.make(t, params)).data('guest')) {
+                    q.append(WORKS.guestCaption());
+                }
+            }
+        }
+    };
+
 Object.freeze(WORKS);
+
+// ========================================================
+// ナビゲーションバーの制御をするロジック
 const NAV = {
     top: s => s <= 64,
     toggle: (q, s) => {}
@@ -263,9 +299,8 @@ Object.freeze(NAV);
 const on_scroll =
     () => {
         const scr = $(this).scrollTop();
+        WORKS.selectAll(scr);
         NAV.toggle($('nav'), scr);
-        const wh = window.innerHeight;
-        MASTER.WORKS.AVAILS_ALL.forEach(n => WORKS.scroll(scr, wh, n));
     };
 
 const on_ready =
@@ -275,34 +310,10 @@ const on_ready =
         SS.deploy();
         on_resized();
     };
-const show_card_figure =
-    name => {
-        const display = $(name).css('display');
-        const q = $(name + ' figure');
-        if (WIDTH.uplg() && display !== 'none' && q.length) {
-            const t = q.data('type');
-            if (t && !q.children().length) {
-                const params = {
-                    'src': q.data('src'),
-                    'frameborder': 0,
-                    'allowfullscreen': 'allowfullscreen',
-                    'width': 560,
-                    'height': 315
-                };
-                q.append(TAG.make(t, params));
-                if (q.data('guest')) {
-                    const c = { 'class': 'text-xs-right' };
-                    const cap = TAG.make('figcaption', c);
-                    cap.append(MASTER.MSG.PLAYER);
-                    q.append(cap);
-                }
-            }
-        }
-    };
 
 const on_resized =
     () => {
-        MASTER.WORKS.FIGURES.forEach(show_card_figure);
+        MASTER.WORKS.FIGURES.forEach(WORKS.showFigure);
     };
 
 $(on_ready);
