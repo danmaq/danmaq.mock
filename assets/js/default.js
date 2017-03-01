@@ -232,9 +232,6 @@ WORKS.scroll =
         q.css('background-position', 'center ' + data.o + 'px');
         $(sel + ' .overcard').css('background-color', data.c);
     };
-WORKS.scrollAll =
-    () =>
-    MASTER.WORKS.AVAILS_ALL.forEach(n => WORKS.scroll(scr, wh, n));
 
 const select_illust =
     MASTER.WORKS.USE_ILLUST ?
@@ -262,7 +259,7 @@ const on_scroll =
             'navbar-light');
         const scr = $(this).scrollTop();
         const wh = window.innerHeight;
-        MASTER.WORKS.AVAILS_ALL.forEach(n => WORKS.SCROLL(scr, wh, n));
+        MASTER.WORKS.AVAILS_ALL.forEach(n => WORKS.scroll(scr, wh, n));
     };
 
 const on_ready =
