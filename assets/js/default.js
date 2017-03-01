@@ -2,17 +2,18 @@
 
 const STRATEGY = {
     interface: class {
-        predicate(o) {}
+        predicate(o) { return true; }
         action(o) {}
     },
-    run:
-        (l, o) => {
-            const s = l.find(s => s.predicate(o));
-            if (s !== undefined) {
-                s.action(o);
-            }
-        }
+    run: (l, o) => {}
 };
+STRATEGY.dummy = new STRATEGY.interface();
+STRATEGY.run =
+    (l, o) =>
+    l
+    .concat([STRATEGY.dummy])
+    .find(s => s.predicate(o))
+    .action(o);
 Object.freeze(STRATEGY);
 
 // ========================================================
@@ -47,11 +48,12 @@ Object.freeze(WIDTH);
 const MATH = {
     randI: (l, f) => (f ? Math.floor : Math.round)(Math.random() * l),
     rndCmp: () => Math.random() - 0.5,
-    easeISine: t => 1.0 - Math.cos(t * Math.PI * 0.5)
+    easeISine: t => 1.0 - Math.cos(t * Math.PI * 0.5),
+    easeOISine: t => 0
 };
 MATH.easeOISine =
-    a => a < 0.5 ? 0.5 * (1 - MATH.easeISine(1 - 2 * a)) :
-    0.5 * MATH.easeISine(a * 2 - 1) + 0.5;
+    t => t < 0.5 ? 0.5 * (1 - MATH.easeISine(1 - 2 * t)) :
+    0.5 * MATH.easeISine(t * 2 - 1) + 0.5;
 Object.freeze(MATH);
 
 // ========================================================
@@ -88,7 +90,8 @@ Object.freeze(TAG);
 // CSS補助モジュール
 const CSS = {
     rgba: (r, g, b, a) =>
-        'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')'
+        'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')',
+    whiteA: a => ''
 };
 CSS.whiteA = a => CSS.rgba(255, 255, 255, a)
 Object.freeze(CSS);
