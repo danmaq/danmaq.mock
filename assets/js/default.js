@@ -61,20 +61,20 @@ Object.freeze(MATH);
 const LIST = {
     rndChoice: (a, n) => a.sort(MATH.rndCmp).filter((v, i) => i < n),
     exclude: (a, b) => a.filter(v => !b.includes(v)),
-    sum: a => a.reduce((p, c) => p + parseInt(c))
+    sum: a => a.reduce((p, c) => p + Number.parseInt(c))
 };
 Object.freeze(LIST);
 
 // ========================================================
 // jQuery補助モジュール
 const TAG = {};
-TAG.make = (n, p) => $('<' + n + '>').attr(p);
+TAG.make = (n, p) => $(`<${n}>`).attr(p);
 TAG.show = q => q.removeClass('hidden').show();
 TAG.qmap = q => q.map((i, s) => $(s));
 TAG.icon =
     (n, t) => {
         const a = t === undefined ? {} : { 'title': t };
-        const b = { 'aria-hidden': true, class: 'fa ' + n };
+        const b = { 'aria-hidden': true, class: `fa ${n}` };
         return TAG.make('i', Object.assign(b, a));
     };
 TAG.weightChoice =
@@ -89,9 +89,8 @@ Object.freeze(TAG);
 // ========================================================
 // CSS補助モジュール
 const CSS = {
-    rgba: (r, g, b, a) =>
-        'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')',
-    url: u => 'url(' + u + ')',
+    rgba: (r, g, b, a) => `rgba(${r}, ${g}, ${b}, ${a})`,
+    url: u => `url(${u})`,
     whiteA: a => '',
     toggleClass: (q, cond, asTrue, asFalse) => {},
     isDisplay: q => q.css('display') !== 'none'
@@ -161,11 +160,11 @@ const SS = {
 class SSImage extends STRATEGY.interface {
     static params(title, path, size) {
         return {
-            'alt': title,
-            'title': title,
-            'src': path,
-            'width': size,
-            'height': size
+            alt: title,
+            title: title,
+            src: path,
+            width: size,
+            height: size
         };
     }
     path(o) {
@@ -190,8 +189,8 @@ class SSText extends STRATEGY.interface {
 }
 
 SS.STRATEGIES = [new SSImage(), new SSIcon(), new SSText()];
-SS.selector = v => '#achieve li[data-achieve="' + v + '"]';
-SS.weight = q => parseInt(q.data('p'));
+SS.selector = v => `#achieve li[data-achieve="${v}"]`;
+SS.weight = q => Number.parseInt(q.data('p'));
 SS.select =
     v => ({
         k: v,
@@ -211,12 +210,26 @@ Object.freeze(SS);
 // 主な作品を背景スクロールするロジック
 const WORKS = {
     alpha: a => Math.min(Math.abs(a - 0.5) * 3.0, 1.0),
+    getIllustFname: (c, m) => `${c}-${MATH.randI(m, true) + 1}.jpg`,
     size: q =>
         ({
             h: q.outerHeight(),
             w: q.outerWidth(),
             t: q.offset().top
-        })
+        }),
+    paramYoutube: s => ({
+        src: s,
+        frameborder: 0,
+        allowfullscreen: 'allowfullscreen',
+        width: 560,
+        height: 315
+    }),
+    guestCaption:
+        () => {
+            const c = { class: 'text-xs-right' };
+            const cap = TAG.make('figcaption', c);
+            return cap.append(MASTER.MSG.PLAYER);
+        }
 };
 WORKS.offsetAndBGColor =
     (wt, wh, q) => {
@@ -232,11 +245,9 @@ WORKS.scroll =
     (wt, wh, sel) => {
         const q = $(sel);
         const data = WORKS.offsetAndBGColor(wt, wh, q);
-        q.css('background-position', 'center ' + data.o + 'px');
-        $(sel + ' .overcard').css('background-color', data.c);
+        q.css('background-position', `center ${data.o}px`);
+        $(`${sel} .overcard`).css('background-color', data.c);
     };
-WORKS.getIllustFname =
-    (cat, max) => cat + '-' + (MATH.randI(max, true) + 1) + '.jpg';
 WORKS.selectIllust =
     MASTER.WORKS.USE_ILLUST ?
     () => {
@@ -254,26 +265,12 @@ WORKS.selectAll =
     s =>
     MASTER.WORKS.AVAILS_ALL.forEach(
         n => WORKS.scroll(s, innerHeight, n));
-WORKS.paramYoutube =
-    s => ({
-        'src': s,
-        'frameborder': 0,
-        'allowfullscreen': 'allowfullscreen',
-        'width': 560,
-        'height': 315
-    });
-WORKS.guestCaption =
-    () => {
-        const c = { 'class': 'text-xs-right' };
-        const cap = TAG.make('figcaption', c);
-        return cap.append(MASTER.MSG.PLAYER);
-    };
 WORKS.showFigure =
     name => {
         const q = $(name + ' figure');
         if (WIDTH.uplg() && CSS.isDisplay($(name)) && q.length) {
             const t = q.data('type');
-            if (t && !q.children().length) {
+            if (!q.children().length && t) {
                 const params = WORKS.paramYoutube(q.data('src'));
                 if (q.append(TAG.make(t, params)).data('guest')) {
                     q.append(WORKS.guestCaption());
@@ -281,7 +278,8 @@ WORKS.showFigure =
             }
         }
     };
-
+WORKS.showFigureAll =
+    () => MASTER.WORKS.FIGURES.forEach(WORKS.showFigure);
 Object.freeze(WORKS);
 
 // ========================================================
@@ -313,10 +311,10 @@ const on_ready =
 
 const on_resized =
     () => {
-        MASTER.WORKS.FIGURES.forEach(WORKS.showFigure);
+        on_scroll();
+        WORKS.showFigureAll();
     };
 
 $(on_ready);
 $(window).scroll(on_scroll);
-$(window).resize(on_scroll);
 $(window).resize(on_resized);
