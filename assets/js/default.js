@@ -94,6 +94,11 @@ const CSS = {
     whiteA: a => ''
 };
 CSS.whiteA = a => CSS.rgba(255, 255, 255, a)
+CSS.toggleClass =
+    (target, cond, show, hide) => {
+        target[cond ? 'addClass' : 'removeClass'](show);
+        target[cond ? 'removeClass' : 'addClass'](hide);
+    };
 Object.freeze(CSS);
 
 // ========================================================
@@ -204,7 +209,11 @@ Object.freeze(SS);
 const WORKS = {
     alpha: a => Math.min(Math.abs(a - 0.5) * 3.0, 1.0),
     size: q =>
-        ({ h: q.outerHeight(), w: q.outerWidth(), t: q.offset().top })
+        ({
+            h: q.outerHeight(),
+            w: q.outerWidth(),
+            t: q.offset().top
+        })
 };
 WORKS.offsetAndBGColor =
     (wt, wh, q) => {
@@ -216,19 +225,16 @@ WORKS.offsetAndBGColor =
             c: CSS.whiteA(WORKS.alpha(a))
         };
     };
-const card_scroll =
+WORKS.scroll =
     (wt, wh, sel) => {
-        let q = $(sel);
-        let data = WORKS.offsetAndBGColor(wt, wh, q);
+        const q = $(sel);
+        const data = WORKS.offsetAndBGColor(wt, wh, q);
         q.css('background-position', 'center ' + data.o + 'px');
         $(sel + ' .overcard').css('background-color', data.c);
     };
-
-const toggle_class =
-    (target, cond, show, hide) => {
-        target[cond ? 'addClass' : 'removeClass'](show);
-        target[cond ? 'removeClass' : 'addClass'](hide);
-    };
+WORKS.scrollAll =
+    () =>
+    MASTER.WORKS.AVAILS_ALL.forEach(n => WORKS.scroll(scr, wh, n));
 
 const select_illust =
     MASTER.WORKS.USE_ILLUST ?
@@ -249,14 +255,14 @@ const select_card =
 
 const on_scroll =
     () => {
-        toggle_class(
+        CSS.toggleClass(
             $('nav'),
             $(document).scrollTop() <= 64,
             'navbar-expand navbar-dark',
             'navbar-light');
         const scr = $(this).scrollTop();
         const wh = window.innerHeight;
-        MASTER.WORKS.AVAILS_ALL.forEach(n => card_scroll(scr, wh, n));
+        MASTER.WORKS.AVAILS_ALL.forEach(n => WORKS.SCROLL(scr, wh, n));
     };
 
 const on_ready =
