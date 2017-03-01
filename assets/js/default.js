@@ -91,13 +91,15 @@ Object.freeze(TAG);
 const CSS = {
     rgba: (r, g, b, a) =>
         'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')',
-    whiteA: a => ''
+    url: u => 'url(' + u + ')',
+    whiteA: a => '',
+    toggleClass: (q, cond, asTrue, asFalse) => {}
 };
 CSS.whiteA = a => CSS.rgba(255, 255, 255, a)
 CSS.toggleClass =
-    (target, cond, show, hide) => {
-        target[cond ? 'addClass' : 'removeClass'](show);
-        target[cond ? 'removeClass' : 'addClass'](hide);
+    (target, cond, classAsTrue, classAsFalse) => {
+        target[cond ? 'addClass' : 'removeClass'](classAsTrue);
+        target[cond ? 'removeClass' : 'addClass'](classAsFalse);
     };
 Object.freeze(CSS);
 
@@ -232,39 +234,43 @@ WORKS.scroll =
         q.css('background-position', 'center ' + data.o + 'px');
         $(sel + ' .overcard').css('background-color', data.c);
     };
-
-const select_illust =
+WORKS.getIllustFname =
+    (cat, max) => cat + '-' + (MATH.randI(max, true) + 1) + '.jpg';
+WORKS.selectIllust =
     MASTER.WORKS.USE_ILLUST ?
     () => {
         const q = $('.card-illust');
-        const cat = q.data('cat');
-        const sel = MATH.randI(parseInt(q.data('max')), true) + 1;
-        const url = MASTER.URI.IMG_WORKS + cat + '-' + sel + '.jpg';
-        q.css('background-image', 'url(' + url + ')');
+        const f = WORKS.getIllustFname(q.data('cat'), q.data('max'));
+        q.css('background-image', CSS.url(MASTER.URI.IMG_WORKS + f));
     } : () => {};
-
-const select_card =
+WORKS.select =
     () => {
         MASTER.WORKS.SHARED.forEach(v => $(v).hide());
         MASTER.WORKS.AVAILS.forEach(v => TAG.show($(v)));
-        select_illust();
+        WORKS.selectIllust();
     };
+Object.freeze(WORKS);
+const NAV = {
+    top: s => s <= 64,
+    toggle: (q, s) => {}
+};
+NAV.toggle =
+    (q, s) =>
+    CSS.toggleClass(
+        q, NAV.top(s), 'navbar-expand navbar-dark', 'navbar-light')
+Object.freeze(NAV);
 
 const on_scroll =
     () => {
-        CSS.toggleClass(
-            $('nav'),
-            $(document).scrollTop() <= 64,
-            'navbar-expand navbar-dark',
-            'navbar-light');
         const scr = $(this).scrollTop();
+        NAV.toggle($('nav'), scr);
         const wh = window.innerHeight;
         MASTER.WORKS.AVAILS_ALL.forEach(n => WORKS.scroll(scr, wh, n));
     };
 
 const on_ready =
     () => {
-        select_card();
+        WORKS.select();
         $('#achieve li').hide();
         SS.deploy();
         on_resized();
