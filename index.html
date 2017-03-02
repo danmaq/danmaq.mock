@@ -17,15 +17,12 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw" crossorigin="anonymous">
     <link rel="stylesheet/less" type="text/css" href="./assets/less/style.less" />
-    <!--[if IE]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/6.1.19/browser.min.js" async="async"></script>
-    <![endif]-->
-
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js" async="async"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" async="async"></script>
     <![endif]-->
+    <script type="application/javascript" src="https://www.google.com/recaptcha/api.js" async="async"></script>
 </head>
 
 <body data-spy="scroll" data-target="#scroll-spy">
@@ -134,7 +131,7 @@
                                 <h3 class="card-title">イラスト活動</h3>
                                 <p class="card-text">他にも、東方やVOCALOID、あるいはオリジナルなど様々なジャンルのイラスト制作活動も行なっています。Pixiv で過去のイラストを掲載しています。</p>
                             </article>
-                            <p><a class="btn btn-primary btn-lg" href="https://pixiv.me/danmaq" role="button" target="_blank">Go to Pixiv</a></p>
+                            <p><a class="btn btn-secondary btn-lg" href="https://pixiv.me/danmaq" role="button" target="_blank">Go to Pixiv</a></p>
                         </div>
                     </div>
                 </div>
@@ -151,12 +148,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-md-6">
                     <div class="card about-card">
                         <article class="card-block">
                             <h3 class="card-title">創る<small> - Creating</small></h3>
-                            <img class="card-img" src="./assets/img/photos/comiket.jpg" alt="" width="320" height="240" />
                             <p class="card-text">東方やボカロ、あるいはオリジナルの作品を作っています。作品は Web に随時公開、およびコミックマーケットや同人書店で頒布いたします。</p>
+                            <img class="card-img" src="./assets/img/photos/comiket.jpg" alt="" width="320" height="240" />
                             <h4>最近の活動記録</h4>
                             <ul>
                                 <li>2016/12 コミックマーケット91</li>
@@ -167,12 +164,12 @@
                         </article>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-md-6">
                     <div class="card about-card">
                         <article class="card-block">
                             <h3 class="card-title">共有する<small> - Sharing</small></h3>
+                            <p class="card-text">作品制作のノウハウや世界観、そしてちょっとした制作のための心意気などをあなたに共有します。</p>
                             <img class="card-img" src="./assets/img/photos/workshop.jpg" alt="" width="320" height="240" />
-                            <p class="card-text">作品制作のノウハウや世界観、そしてちょっとした制作のための心意気などをあなたに共有いたします。</p>
                             <p class="card-text">具体的には、ニコ生などのライブ放送での活動のほか、オフラインでの定期交流会、そして初心者向けのゲームアプリ制作勉強会なども開催しております。</p>
                         </article>
                     </div>
@@ -195,125 +192,116 @@
                 <div class="col-md-7">
                     <h4>主なスキル</h4>
                     <ul class="row" id="achieve">
-                        <li class="col-xs-4 achieve-text" data-achieve="vm" data-p="12" data-img="docker.svg">docker</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="vm" data-p="10" data-img="ansible.svg">Ansible</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="vm" data-p="8" data-img="docker-compose.png">docker-compose</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="vm" data-p="5" data-img="vagrant.svg">Vagrant</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="vm" data-p="2" data-img="parallels.svg">Parallels</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="vm" data-p="1" data-img="virtualbox.svg">VirtualBox</li>
-                        <li class="col-xs-4 achieve-text" data-achieve="iaas" data-p="20" data-img="sakura-vps.svg">SAKURA VPS</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="iaas" data-p="10" data-img="xserver.svg">XSERVER</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="iaas" data-p="3" data-img="sakura-cloud.svg">SAKURA CLOUD</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="iaas" data-p="1" data-ing="sppd.svg">SPPD Managed Server</li>
-                        <li class="col-xs-4 achieve-text" data-achieve="saas" data-p="20" data-img="opensocial.svg">OpenSocial</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="saas" data-p="20" data-img="wercker.svg">wercker</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="saas" data-p="9" data-i="github">GitHub</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="saas" data-p="6" data-img="office365.svg">Microsoft Office 365</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="saas" data-p="3" data-i="twitter">Twitter</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="saas" data-p="2" data-img="chatwork.svg">chatwork</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="saas" data-p="1" data-img="gitter.svg">gitter</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="saas" data-p="1" data-i="slack">slack</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="saas" data-p="1" data-i="facebook-official">Facebook</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="saas" data-p="1" data-img="mixi.svg">mixi</li>
-                        <li class="col-xs-4 achieve-text" data-achieve="manage" data-p="20" data-img="jenkins.svg">Jenkins</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="manage" data-p="18" data-img="redmine.svg">Redmine</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="manage" data-p="15" data-i="wordpress">WordPress</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="manage" data-p="8" data-img="Trac.svg">Trac</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="manage" data-p="7" data-img="msproject.svg">Microsoft Project</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="manage" data-p="6" data-i="git">Git</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="manage" data-p="2" data-img="subversion.svg">Subversion</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="manage" data-p="1" data-ing="pukiwiki.svg">PukiWiki</li>
-                        <li class="col-xs-4 achieve-text" data-achieve="backend" data-p="20" data-img="jekyll.svg">Jekyll</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="backend" data-p="20" data-img="meteor.svg">Meteor</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="backend" data-p="15" data-img="php.svg">PHP</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="backend" data-p="12" data-img="nginx.svg">NGINX</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="backend" data-p="10" data-img="imagick.svg">Image Magick</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="backend" data-p="8" data-img="perl.svg">Perl</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="backend" data-p="7" data-img="apache.svg">Apache HTTP Server</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="backend" data-p="2" data-img="tomcat.svg">Apache Tomcat</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="backend" data-p="1" data-img="java.svg">ORACLE Java</li>
-                        <li class="col-xs-4 achieve-text" data-achieve="db" data-p="5" data-img="mongodb.svg">MongoDB</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="db" data-p="4" data-img="sqlite.svg">SQLite</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="db" data-p="3" data-img="mariadb.svg">MariaDB</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="db" data-p="3" data-img="mysql.svg">ORACLE MySQL</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="db" data-p="1" data-img="postgresql.svg">PostgreSQL</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="db" data-p="1" data-img="access.svg">Microsoft Access</li>
-                        <li class="col-xs-4 achieve-text" data-achieve="front" data-p="3" data-img="bootstrap.svg">bootstrap</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="front" data-p="3" data-img="backbone.svg">BACKBONE.js</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="front" data-p="3" data-img="typescript.svg">TypeScript</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="front" data-p="2" data-img="jquery.svg">jQuery</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="front" data-p="2" data-i="html5">HTML</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="front" data-p="2" data-img="less.svg">LESS</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="front" data-p="2" data-img="javascript.svg">JavaScript</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="front" data-p="1" data-i="css3">CSS</li>
-                        <li class="col-xs-4 achieve-text" data-achieve="flash" data-p="3" data-img="flex.svg">Apache Flex</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="flash" data-p="2" data-img="adobe-an.svg">Adobe Animate</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="flash" data-p="1" data-img="flash.svg">Adobe Flash</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="flash" data-p="1" data-ing="actionscript.svg">ActionScript</li>
-                        <li class="col-xs-4 achieve-text" data-achieve="os" data-p="20" data-img="iphone.svg">iOS</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="os" data-p="20" data-i="android">Android</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="os" data-p="12" data-i="windows">Windows</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="os" data-p="10" data-img="macos.svg">macOS</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="os" data-p="5" data-img="cardboard.svg">Cardboard</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="os" data-p="2" data-img="freebsd.svg">FreeBSD</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="os" data-p="2" data-ing="aix.svg">IBM AIX</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="os" data-p="2" data-img="i-mode.svg">i-mode</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="os" data-p="2" data-img="ezweb.svg">EzWeb</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="os" data-p="1" data-img="xbox.svg">Xbox 360</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="os" data-p="1" data-img="nintendo-ds.svg">Nintendo DS</li>
-                        <li class="col-xs-4 achieve-text" data-achieve="linux" data-p="2" data-i="linux">Linux</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="linux" data-p="2" data-img="atomic-host.svg">Atomic Host</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="linux" data-p="2" data-img="alpine.svg">Alpine Linux</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="linux" data-p="2" data-img="ubuntu.svg">Ubuntu</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="linux" data-p="2" data-img="centos.svg">CentOS</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="linux" data-p="1" data-img="coreos.svg">CoreOS</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="linux" data-p="1" data-img="fedora.svg">Fedora</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="linux" data-p="1" data-img="debian.svg">Debian GNU/Linux</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="linux" data-p="1" data-img="opensuse.svg">OpenSUSE</li>
-                        <li class="col-xs-4 achieve-text" data-achieve="ide" data-p="12" data-img="visualstudio.svg">VisualStudio</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="ide" data-p="10" data-img="adobe-fb.svg">Adobe Flash Builder</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="ide" data-p="7" data-img="xcode.svg">Xcode</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="ide" data-p="5" data-img="eclipse.svg">Eclipse</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="ide" data-p="1" data-ing="codewarrior.svg">CodeWarrior</li>
-                        <li class="col-xs-4 achieve-text" data-achieve="gameapi" data-p="10" data-img="unity3d.svg">Unity 3D</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="gameapi" data-p="8" data-img="air.svg">Adobe AIR</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="gameapi" data-p="7" data-img="monogame.svg">monoGame</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="gameapi" data-p="6" data-img="xna.svg">Microsoft XNA</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="gameapi" data-p="5" data-img="xamarin.svg">Xamarin</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="gameapi" data-p="3" data-img="cocos2d-x.png">cocos2d-x</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="gameapi" data-p="2" data-img="directx.svg">DirectX</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="gameapi" data-p="1" data-ing="hsp.svg">HSP</li>
-                        <li class="col-xs-4 achieve-text" data-achieve="lang" data-p="3" data-img="fsharp.svg">F#</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="lang" data-p="2" data-img="xaml.svg">XAML</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="lang" data-p="2" data-img="csharp.svg">C#</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="lang" data-p="2" data-img="mql4.svg">MQL4</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="lang" data-p="1" data-img="cpp.svg">C++</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="lang" data-p="1" data-img="qt.svg">Qt Quick</li>
-                        <li class="col-xs-4 achieve-text" data-achieve="misc" data-p="20" data-i="free-code-camp">freecodecamp</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="20" data-img="powershell.svg">PowerShell</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="16" data-img="uml.svg">UML</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="8" data-img="arduino.svg">Arduino</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="7" data-img="markdown.svg">Markdown</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="3" data-img="raspberry-pi.svg">Raspberry Pi</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="2" data-ing="license-fe.svg">基本情報技術者(FE)</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="2" data-img="license-ip.svg">ITパスポート(IP)</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="1" data-img="license-pken.svg">P検 2級</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="1" data-img="avr.svg">AMTEL AVR</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="1" data-ing="chocolatey.svg">Chocolatey</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="1" data-img="nuget.svg">NuGet</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="1" data-img="minecraft.svg">Minecraft</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="misc" data-p="1" data-img="danmakufu.png">東方弾幕風</li>
-                        <li class="col-xs-4 achieve-text" data-achieve="video" data-p="20" data-img="adobe-ae.svg">Adobe AfterEffects</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="video" data-p="12" data-img="imovie.svg">iMovie</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="video" data-p="2" data-img="aviutl.svg">AviUtl</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="video" data-p="2" data-img="nive.svg">NiVE</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="video" data-p="1" data-ing="soundengine.svg">Sound Engine Free</li>
-                        <li class="col-xs-4 achieve-text" data-achieve="graphic" data-p="20" data-img="metasequoia.svg">Metasequoia</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="graphic" data-p="20" data-img="adobe-fw.svg">Adobe Fireworks</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="graphic" data-p="12" data-img="blender.svg">blender</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="graphic" data-p="5" data-img="adobe-ps.svg">Adobe Photoshop</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="graphic" data-p="3" data-ing="optpix.svg">WebTechnology OPTPiX</li>
-                        <li class="col-xs-4 achieve-text hidden" data-achieve="graphic" data-p="1" data-ing="pixia.svg">Pixia</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text" data-achieve="vm" data-p="12" data-img="docker.svg">docker</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="vm" data-p="10" data-img="ansible.svg">Ansible</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="vm" data-p="8" data-img="docker-compose.png">docker-compose</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="vm" data-p="5" data-img="vagrant.svg">Vagrant</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="vm" data-p="2" data-img="parallels.svg">Parallels</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="vm" data-p="1" data-img="virtualbox.svg">VirtualBox</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text" data-achieve="iaas" data-p="20" data-img="sakura-vps.svg">SAKURA VPS</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="iaas" data-p="10" data-img="xserver.svg">XSERVER</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="iaas" data-p="3" data-img="sakura-cloud.svg">SAKURA CLOUD</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text" data-achieve="saas" data-p="20" data-img="opensocial.svg">OpenSocial</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="saas" data-p="20" data-img="wercker.svg">wercker</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="saas" data-p="9" data-i="github">GitHub</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="saas" data-p="6" data-img="office365.svg">Microsoft Office 365</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="saas" data-p="3" data-i="twitter">Twitter</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="saas" data-p="2" data-img="chatwork.svg">chatwork</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="saas" data-p="1" data-img="gitter.svg">gitter</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="saas" data-p="1" data-i="slack">slack</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="saas" data-p="1" data-i="facebook-official">Facebook</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="saas" data-p="1" data-img="mixi.svg">mixi</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text" data-achieve="manage" data-p="20" data-img="jenkins.svg">Jenkins</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="manage" data-p="18" data-img="redmine.svg">Redmine</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="manage" data-p="15" data-i="wordpress">WordPress</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="manage" data-p="8" data-img="Trac.svg">Trac</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="manage" data-p="7" data-img="msproject.svg">Microsoft Project</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="manage" data-p="6" data-i="git">Git</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="manage" data-p="2" data-img="subversion.svg">Subversion</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text" data-achieve="backend" data-p="20" data-img="jekyll.svg">Jekyll</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="backend" data-p="20" data-img="meteor.svg">Meteor</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="backend" data-p="15" data-img="php.svg">PHP</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="backend" data-p="12" data-img="nginx.svg">NGINX</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="backend" data-p="10" data-img="imagick.svg">Image Magick</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="backend" data-p="8" data-img="perl.svg">Perl</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="backend" data-p="7" data-img="apache.svg">Apache HTTP Server</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="backend" data-p="2" data-img="tomcat.svg">Apache Tomcat</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="backend" data-p="1" data-img="java.svg">ORACLE Java</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text" data-achieve="db" data-p="5" data-img="mongodb.svg">MongoDB</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="db" data-p="4" data-img="sqlite.svg">SQLite</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="db" data-p="3" data-img="mariadb.svg">MariaDB</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="db" data-p="3" data-img="mysql.svg">ORACLE MySQL</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="db" data-p="1" data-img="postgresql.svg">PostgreSQL</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="db" data-p="1" data-img="access.svg">Microsoft Access</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text" data-achieve="front" data-p="3" data-img="bootstrap.svg">bootstrap</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="front" data-p="3" data-img="backbone.svg">BACKBONE.js</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="front" data-p="3" data-img="typescript.svg">TypeScript</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="front" data-p="2" data-img="jquery.svg">jQuery</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="front" data-p="2" data-i="html5">HTML</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="front" data-p="2" data-img="less.svg">LESS</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="front" data-p="2" data-img="javascript.svg">JavaScript</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="front" data-p="1" data-i="css3">CSS</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text" data-achieve="flash" data-p="3" data-img="flex.svg">Apache Flex</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="flash" data-p="2" data-img="adobe-an.svg">Adobe Animate</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="flash" data-p="1" data-img="flash.svg">Adobe Flash</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="flash" data-p="1" data-ing="actionscript.svg">ActionScript</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text" data-achieve="os" data-p="20" data-img="iphone.svg">iOS</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="os" data-p="20" data-i="android">Android</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="os" data-p="10" data-i="windows">Windows</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="os" data-p="10" data-img="macos.svg">macOS</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="os" data-p="5" data-img="cardboard.svg">Cardboard</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="os" data-p="2" data-img="freebsd.svg">FreeBSD</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="os" data-p="2" data-img="i-mode.svg">i-mode</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="os" data-p="2" data-img="ezweb.svg">EzWeb</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="os" data-p="1" data-img="xbox.svg">Xbox 360</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="os" data-p="1" data-img="nintendo-ds.svg">Nintendo DS</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text" data-achieve="linux" data-p="2" data-i="linux">Linux</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="linux" data-p="2" data-img="atomic-host.svg">Atomic Host</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="linux" data-p="2" data-img="alpine.svg">Alpine Linux</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="linux" data-p="2" data-img="ubuntu.svg">Ubuntu</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="linux" data-p="2" data-img="centos.svg">CentOS</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="linux" data-p="1" data-img="coreos.svg">CoreOS</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="linux" data-p="1" data-img="fedora.svg">Fedora</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="linux" data-p="1" data-img="debian.svg">Debian GNU/Linux</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="linux" data-p="1" data-img="opensuse.svg">OpenSUSE</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text" data-achieve="ide" data-p="12" data-img="visualstudio.svg">VisualStudio</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="ide" data-p="10" data-img="adobe-fb.svg">Adobe Flash Builder</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="ide" data-p="7" data-img="xcode.svg">Xcode</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="ide" data-p="5" data-img="eclipse.svg">Eclipse</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text" data-achieve="gameapi" data-p="10" data-img="unity3d.svg">Unity 3D</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="gameapi" data-p="8" data-img="air.svg">Adobe AIR</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="gameapi" data-p="7" data-img="monogame.svg">monoGame</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="gameapi" data-p="6" data-img="xna.svg">Microsoft XNA</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="gameapi" data-p="5" data-img="xamarin.svg">Xamarin</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="gameapi" data-p="3" data-img="cocos2d-x.png">cocos2d-x</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="gameapi" data-p="2" data-img="directx.svg">DirectX</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text" data-achieve="lang" data-p="3" data-img="fsharp.svg">F#</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="lang" data-p="2" data-img="xaml.svg">XAML</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="lang" data-p="2" data-img="csharp.svg">C#</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="lang" data-p="2" data-img="mql4.svg">MQL4</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="lang" data-p="1" data-img="cpp.svg">C++</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="lang" data-p="1" data-img="qt.svg">Qt Quick</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text" data-achieve="misc" data-p="20" data-i="free-code-camp">freecodecamp</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="misc" data-p="20" data-img="powershell.svg">PowerShell</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="misc" data-p="16" data-img="uml.svg">UML</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="misc" data-p="8" data-img="arduino.svg">Arduino</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="misc" data-p="7" data-img="markdown.svg">Markdown</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="misc" data-p="3" data-img="raspberry-pi.svg">Raspberry Pi</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="misc" data-p="2" data-ing="license-fe.svg">基本情報技術者(FE)</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="misc" data-p="2" data-img="license-ip.svg">ITパスポート(IP)</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="misc" data-p="1" data-img="license-pken.svg">P検 2級</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="misc" data-p="1" data-img="avr.svg">AMTEL AVR</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="misc" data-p="1" data-img="nuget.svg">NuGet</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="misc" data-p="1" data-img="minecraft.svg">Minecraft</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="misc" data-p="1" data-img="danmakufu.png">東方弾幕風</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text" data-achieve="video" data-p="20" data-img="adobe-ae.svg">Adobe AfterEffects</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="video" data-p="12" data-img="imovie.svg">iMovie</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="video" data-p="2" data-img="aviutl.svg">AviUtl</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="video" data-p="1" data-img="nive.svg">NiVE</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text" data-achieve="graphic" data-p="2" data-img="metasequoia.svg">Metasequoia</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="graphic" data-p="3" data-img="adobe-fw.svg">Adobe Fireworks</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="graphic" data-p="1" data-img="blender.svg">blender</li>
+                        <li class="col-md-4 col-sm-3 col-xs-4 achieve-text invisible" data-achieve="graphic" data-p="1" data-img="adobe-ps.svg">Adobe Photoshop</li>
                     </ul>
                 </div>
             </div>
@@ -324,44 +312,58 @@
         <div class="container" id="contact">
             <div class="col-xs-12 text-xs-center subtitle">
                 <h2>Contact</h2>
-                <p>ご意見・ご要望は <a href="https://twitter.com/danmaq" target="_blank">Twitter</a> で受け付けております。下記のボタンを押して、@danmaq を消さずに、ご意見を続けて入れて送信してください。</p>
+                <p>ご意見は <a href="https://twitter.com/danmaq" target="_blank">Twitter</a> で受け付けております。下記のボタンを押して、@danmaq を消さずに、ご意見を続けて入れて送信してください。</p>
             </div>
             <div class="col-xs-12 text-xs-center">
-                <ul>
+                <ul class="list-unstyled">
                     <li>
                         <a href="https://twitter.com/intent/tweet?screen_name=danmaq" class="twitter-mention-button" data-size="large" data-related="danmaq" data-dnt="true">Tweet to @danmaq</a>
-                        <script>
-                            ! function(d, s, id) {
-                                var js, fjs = d.getElementsByTagName(s)[0],
-                                    p = /^http:/.test(d.location) ? 'http' : 'https';
-                                if (!d.getElementById(id)) {
-                                    js = d.createElement(s);
-                                    js.id = id;
-                                    js.src = p + '://platform.twitter.com/widgets.js';
-                                    fjs.parentNode.insertBefore(js, fjs);
-                                }
-                            }(document, 'script', 'twitter-wjs');
-                        </script>
                     </li>
                     <li><a class="btn btn-primary btn-sm" href="" role="button">Twitter ではなく、メールでの返信を希望します</a></li>
+                    <li>
+                        <form id="email-form" class="form-horizontal">
+                            <fieldset>
+                                <legend>下記を全て埋めて、送信ボタンを押してください。</legend>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email" placeholder="あなたのメールアドレス" required="required" />
+                                    <textarea class="form-control" placeholder="ご意見を記入してください。" rows="3" id="body" required="required"></textarea>
+                                </div>
+                                <div class="g-recaptcha col-md-7 col-sm-9" data-sitekey="6Ld0bBcUAAAAAFRPqh4atIsGD3n9G0iteecU3uHg"></div>
+                                <div class="form-group submit-area col-md-5 col-sm-3 row">
+                                    <button type="reset" class="btn btn-default col-md-6 col-sm-12">キャンセル</button>
+                                    <button type="submit" class="btn btn-primary col-md-6 col-sm-12">送信</button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </li>
                 </ul>
             </div>
             <div class="col-xs-12 text-xs-center subtitle">
                 <h3>メルマガで最新情報を受け取りましょう</h3>
                 <p>&ldquo;danmaq&rdquo; 公式メルマガでは、最新の活動情報のほか、作品制作のノウハウや世界観、そしてちょっとした制作のための心意気などをあなたに共有いたします。今すぐ下記にあなたのメールアドレスを入れて、送信ボタンを押してください。</p>
-                <p>Underconstruction.</p>
+                <form id="mail-magazine-form" class="form-horizontal">
+                    <fieldset>
+                        <legend>下記を全て埋めて、送信ボタンを押してください。</legend>
+                        <div class="form-group submit-area col-sm-9">
+                            <input type="email" class="form-control" id="email" placeholder="あなたのメールアドレス" required="required" />
+                        </div>
+                        <div class="form-group submit-area col-sm-3 row">
+                            <button type="submit" class="btn btn-primary col-xs-12">送信</button>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
 
             <div class="col-xs-12 text-xs-center subtitle">
                 <h3>SNS でも最新情報を受け取りましょう</h3>
                 <p>最新の活動状況も Twitter で配信中です。ほか SNS でも定期的に活動しています。</p>
             </div>
-            <div class="col-xs-12 text-xs-center">
-                <ul class="list-inline">
-                    <li class="list-inline-item"><a href="https://twitter.com/danmaq" target="_blank">Twitter</a></li>
-                    <li class="list-inline-item"><a href="http://com.nicovideo.jp/community/co2711221" target="_blank">ニコニコミュニティ</a></li>
-                    <li class="list-inline-item"><a href="https://pixiv.me/danmaq" target="_blank">Pixiv</a></li>
-                    <li class="list-inline-item"><a href="https://facebook.com/danmaq" target="_blank">Facebook</a></li>
+            <div id="sns" class="text-xs-center">
+                <ul class="list-unstyled row">
+                    <li class="col-sm-3 col-xs-6"><a class="btn btn-primary rounded-circle btn-lg" role="button" href="https://twitter.com/danmaq" target="_blank"><i class="fa fa-twitter fa-lg"></i></a></li>
+                    <li class="col-sm-3 col-xs-6"><a class="btn btn-primary rounded-circle btn-lg" role="button" href="http://com.nicovideo.jp/community/co2711221" target="_blank">niconico</a></li>
+                    <li class="col-sm-3 col-xs-6"><a class="btn btn-primary rounded-circle btn-lg" role="button" href="https://pixiv.me/danmaq" target="_blank">Pixiv</a></li>
+                    <li class="col-sm-3 col-xs-6"><a class="btn btn-primary rounded-circle btn-lg" role="button" href="https://facebook.com/danmaq" target="_blank"><i class="fa fa-facebook fa-lg"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -382,7 +384,7 @@
                 &ldquo;danmaq&rdquo; は DAYS PRODUCTION が運営する、同人ブランドです。<br>
                 <i class="fa fa-copyright" aria-hidden="true"></i> 1999-2017 danmaq / DAYS PRODUCTION All rights reserved.
             </p>
-            <ul class="col-xs-12">
+            <ul class="col-xs-12 list-unstyled">
                 <li><a href="#">プライバシー ポリシー</a></li>
             </ul>
         </div>

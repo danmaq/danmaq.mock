@@ -69,7 +69,7 @@ Object.freeze(LIST);
 // jQuery補助モジュール
 const TAG = {};
 TAG.make = (n, p) => $(`<${n}>`).attr(p);
-TAG.show = q => q.removeClass('hidden').show();
+TAG.show = q => q.removeClass('invisible').show();
 TAG.qmap = q => q.map((i, s) => $(s));
 TAG.icon =
     (n, t) => {
@@ -320,3 +320,16 @@ const on_resized =
 $(on_ready);
 $(window).scroll(on_scroll);
 $(window).resize(on_resized);
+
+// ========================================================
+// Twitter
+! function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+        p = /^http:/.test(d.location) ? 'http' : 'https';
+    if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = p + '://platform.twitter.com/widgets.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }
+}(document, 'script', 'twitter-wjs');
