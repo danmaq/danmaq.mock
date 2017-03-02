@@ -137,13 +137,13 @@ MASTER.SKILLS.AVAILS =
 MASTER.WORKS.BG_SIZE = { w: 720.0, h: 1024.0 };
 MASTER.WORKS.BG_AS = MASTER.WORKS.BG_SIZE.w / MASTER.WORKS.BG_SIZE.h;
 
-MASTER.WORKS.C_ILLUST = '.card-illust';
+MASTER.WORKS.C_ILLUST = '.work-illust';
 MASTER.WORKS.ALL = [
-    '.card-thc', '.card-atc', '.card-thm',
-    '.card-em', MASTER.WORKS.C_ILLUST
+    '.work-thc', '.work-atc', '.work-thm',
+    '.work-em', MASTER.WORKS.C_ILLUST
 ];
-MASTER.WORKS.FIGURES = ['.card-thc', '.card-atc', '.card-thm'];
-MASTER.WORKS.SHARED = ['.card-thm', '.card-em', MASTER.WORKS.C_ILLUST];
+MASTER.WORKS.FIGURES = ['.work-thc', '.work-atc', '.work-thm'];
+MASTER.WORKS.SHARED = ['.work-thm', '.work-em', MASTER.WORKS.C_ILLUST];
 MASTER.WORKS.FIX = LIST.exclude(MASTER.WORKS.ALL, MASTER.WORKS.SHARED);
 MASTER.WORKS.AVAILS = LIST.rndChoice(MASTER.WORKS.SHARED, 2);
 MASTER.WORKS.AVAILS_ALL = MASTER.WORKS.AVAILS.concat(MASTER.WORKS.FIX);
@@ -251,7 +251,7 @@ WORKS.scroll =
 WORKS.selectIllust =
     MASTER.WORKS.USE_ILLUST ?
     () => {
-        const q = $('.card-illust');
+        const q = $('.work-illust');
         const f = WORKS.getIllustFname(q.data('cat'), q.data('max'));
         q.css('background-image', CSS.url(MASTER.URI.IMG_WORKS + f));
     } : () => {};
@@ -294,6 +294,8 @@ NAV.toggle =
         q, NAV.top(s), 'navbar-expand navbar-dark', 'navbar-light')
 Object.freeze(NAV);
 
+// ========================================================
+// メイン ロジック
 const on_scroll =
     () => {
         const scr = $(this).scrollTop();
