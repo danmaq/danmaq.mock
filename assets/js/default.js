@@ -309,6 +309,14 @@ const on_ready =
         $('#achieve li').hide();
         SS.deploy();
         on_resized();
+        $('a[href^="#"]').click(function() {
+            const target = $(this.hash);
+            if (!target.length) return;
+            const params = { scrollTop: target.offset().top };
+            $('html,body').animate(params, 650, 'swing');
+            window.history.pushState(null, null, this.hash);
+            return false;
+        });
     };
 
 const on_resized =
@@ -320,6 +328,7 @@ const on_resized =
 $(on_ready);
 $(window).scroll(on_scroll);
 $(window).resize(on_resized);
+
 
 // ========================================================
 // Twitter
