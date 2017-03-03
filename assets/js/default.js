@@ -5,42 +5,46 @@ const STRATEGY = {
         predicate(o) { return true; }
         action(o) {}
     },
-    run: (l, o) => {}
+    run:
+        (l, o) =>
+        l
+        .concat([STRATEGY.dummy])
+        .find(s => s.predicate(o))
+        .action(o)
 };
 STRATEGY.dummy = new STRATEGY.interface();
-STRATEGY.run =
-    (l, o) =>
-    l
-    .concat([STRATEGY.dummy])
-    .find(s => s.predicate(o))
-    .action(o);
 Object.freeze(STRATEGY);
 
 // ========================================================
 // bootstrap 向け幅検出モジュール
-const WIDTH = { XSSM: 576, SMMD: 768, MDLG: 992, LGXL: 1200 };
-WIDTH.xsw = w => w < WIDTH.XSSM;
-WIDTH.smw = w => w < WIDTH.SMMD && w >= WIDTH.XSSM;
-WIDTH.mdw = w => w < WIDTH.MDLG && w >= WIDTH.SMMD;
-WIDTH.lgw = w => w < WIDTH.LGXL && w >= WIDTH.MDLG;
-WIDTH.xlw = w => w >= WIDTH.LGXL;
-WIDTH.losmw = w => WIDTH.xsw(w) || WIDTH.smw(w);
-WIDTH.lomdw = w => WIDTH.losmw(w) || WIDTH.mdw(w);
-WIDTH.lolgw = w => WIDTH.lomdw(w) || WIDTH.lgw(w);
-WIDTH.uplgw = w => WIDTH.xlw(w) || WIDTH.lgw(w);
-WIDTH.upmdw = w => WIDTH.uplgw(w) || WIDTH.mdw(w);
-WIDTH.upsmw = w => WIDTH.upmdw(w) || WIDTH.smw(w);
-WIDTH.xs = () => WIDTH.xsw($(window).width());
-WIDTH.sm = () => WIDTH.smw($(window).width());
-WIDTH.md = () => WIDTH.mdw($(window).width());
-WIDTH.lg = () => WIDTH.lgw($(window).width());
-WIDTH.xl = () => WIDTH.xlw($(window).width());
-WIDTH.losm = () => WIDTH.losmw($(window).width());
-WIDTH.lomd = () => WIDTH.lomdw($(window).width());
-WIDTH.lolg = () => WIDTH.lolgw($(window).width());
-WIDTH.uplg = () => WIDTH.uplgw($(window).width());
-WIDTH.upmd = () => WIDTH.upmdw($(window).width());
-WIDTH.upsm = () => WIDTH.upsmw($(window).width());
+const WIDTH = {
+    XSSM: 576,
+    SMMD: 768,
+    MDLG: 992,
+    LGXL: 1200,
+    xsw: w => w < WIDTH.XSSM,
+    smw: w => w < WIDTH.SMMD && w >= WIDTH.XSSM,
+    mdw: w => w < WIDTH.MDLG && w >= WIDTH.SMMD,
+    lgw: w => w < WIDTH.LGXL && w >= WIDTH.MDLG,
+    xlw: w => w >= WIDTH.LGXL,
+    losmw: w => WIDTH.xsw(w) || WIDTH.smw(w),
+    lomdw: w => WIDTH.losmw(w) || WIDTH.mdw(w),
+    lolgw: w => WIDTH.lomdw(w) || WIDTH.lgw(w),
+    uplgw: w => WIDTH.xlw(w) || WIDTH.lgw(w),
+    upmdw: w => WIDTH.uplgw(w) || WIDTH.mdw(w),
+    upsmw: w => WIDTH.upmdw(w) || WIDTH.smw(w),
+    xs: () => WIDTH.xsw($(window).width()),
+    sm: () => WIDTH.smw($(window).width()),
+    md: () => WIDTH.mdw($(window).width()),
+    lg: () => WIDTH.lgw($(window).width()),
+    xl: () => WIDTH.xlw($(window).width()),
+    losm: () => WIDTH.losmw($(window).width()),
+    lomd: () => WIDTH.lomdw($(window).width()),
+    lolg: () => WIDTH.lolgw($(window).width()),
+    uplg: () => WIDTH.uplgw($(window).width()),
+    upmd: () => WIDTH.upmdw($(window).width()),
+    upsm: () => WIDTH.upsmw($(window).width()),
+};
 Object.freeze(WIDTH);
 
 // ========================================================
@@ -49,11 +53,8 @@ const MATH = {
     randI: (l, f) => (f ? Math.floor : Math.round)(Math.random() * l),
     rndCmp: () => Math.random() - 0.5,
     easeISine: t => 1.0 - Math.cos(t * Math.PI * 0.5),
-    easeOISine: t => 0
+    easeOISine: t => t < 0.5 ? 0.5 * (1 - MATH.easeISine(1 - 2 * t)) : 0.5 * MATH.easeISine(t * 2 - 1) + 0.5
 };
-MATH.easeOISine =
-    t => t < 0.5 ? 0.5 * (1 - MATH.easeISine(1 - 2 * t)) :
-    0.5 * MATH.easeISine(t * 2 - 1) + 0.5;
 Object.freeze(MATH);
 
 // ========================================================
@@ -67,41 +68,41 @@ Object.freeze(LIST);
 
 // ========================================================
 // jQuery補助モジュール
-const TAG = {};
-TAG.make = (n, p) => $(`<${n}>`).attr(p);
-TAG.show = q => q.removeClass('invisible').show();
-TAG.qmap = q => q.map((i, s) => $(s));
-TAG.icon =
-    (n, t) => {
-        const a = t === undefined ? {} : { 'title': t };
-        const b = { 'aria-hidden': true, class: `fa ${n}` };
-        return TAG.make('i', Object.assign(b, a));
-    };
-TAG.weightChoice =
-    (l, w) => {
-        const qpairs = TAG.qmap(l).get().map(q => ({ q: q, w: w(q) }));
-        let rnd = MATH.randI(LIST.sum(qpairs.map(p => p.w)));
-        const found = qpairs.filter(p => (rnd -= p.w) <= 0);
-        return found.length === 0 ? l.first() : found[0].q;
-    };
+const TAG = {
+    make: (n, p) => $(`<${n}>`).attr(p),
+    show: q => q.removeClass('invisible').show(),
+    qmap: q => q.map((i, s) => $(s)),
+    icon:
+        (n, t) => {
+            const a = t === undefined ? {} : { 'title': t };
+            const b = { 'aria-hidden': true, class: `fa ${n}` };
+            return TAG.make('i', Object.assign(b, a));
+        },
+    weightChoice:
+        (l, w) => {
+            const qpairs =
+                TAG.qmap(l).get().map(q => ({ q: q, w: w(q) }));
+            let rnd = MATH.randI(LIST.sum(qpairs.map(p => p.w)));
+            const found = qpairs.filter(p => (rnd -= p.w) <= 0);
+            return found.length === 0 ? l.first() : found[0].q;
+        }
+};
 Object.freeze(TAG);
 
 // ========================================================
 // CSS補助モジュール
-const CSS = {
+const STYLE = {
     rgba: (r, g, b, a) => `rgba(${r}, ${g}, ${b}, ${a})`,
     url: u => `url(${u})`,
-    whiteA: a => '',
-    toggleClass: (q, cond, asTrue, asFalse) => {},
-    isDisplay: q => q.css('display') !== 'none'
+    whiteA: a => `rgba(255, 255, 255, ${a})`,
+    isDisplay: q => q.css('display') !== 'none',
+    toggleClass:
+        (target, cond, classAsTrue, classAsFalse) => {
+            target[cond ? 'addClass' : 'removeClass'](classAsTrue);
+            target[cond ? 'removeClass' : 'addClass'](classAsFalse);
+        }
 };
-CSS.whiteA = a => CSS.rgba(255, 255, 255, a)
-CSS.toggleClass =
-    (target, cond, classAsTrue, classAsFalse) => {
-        target[cond ? 'addClass' : 'removeClass'](classAsTrue);
-        target[cond ? 'removeClass' : 'addClass'](classAsFalse);
-    };
-Object.freeze(CSS);
+Object.freeze(STYLE);
 
 // ========================================================
 // マスタ モジュール
@@ -110,6 +111,7 @@ const MASTER = {
     MSG: {},
     SKILLS: {},
     WORKS: {},
+    LOADER: {},
 };
 // URL マスタ
 MASTER.URI.ASSETS = './assets/'
@@ -149,12 +151,61 @@ MASTER.WORKS.AVAILS = LIST.rndChoice(MASTER.WORKS.SHARED, 2);
 MASTER.WORKS.AVAILS_ALL = MASTER.WORKS.AVAILS.concat(MASTER.WORKS.FIX);
 MASTER.WORKS.USE_ILLUST =
     MASTER.WORKS.AVAILS.includes(MASTER.WORKS.C_ILLUST);
+MASTER.LOADER.SCRIPT_JQUERY = {
+    url: 'https://code.jquery.com/jquery-3.1.1.min.js',
+    sri: 'sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7'
+};
+MASTER.LOADER.SCRIPT_TETHER = {
+    url: 'https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js',
+    sri: 'sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb'
+};
+MASTER.LOADER.SCRIPT_LESS = {
+    url: 'https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js',
+    sri: 'sha384-tNVWZNCzgnTSr8HLSfGS6L7pO03KOgRXJsprbx6bitch1BMri1brpoPxtyY4pDqn'
+};
+MASTER.LOADER.SCRIPT_BOOTSTRAP = {
+    url: './assets/js/bootstrap.min.js',
+    sri: null
+};
+MASTER.LOADER.STYLE_FONT_AWESOME = {
+    url: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
+    sri: 'sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN',
+    less: false
+};
+MASTER.LOADER.STYLE_ANIMATE = {
+    url: 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css',
+    sri: 'sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw',
+    less: false
+};
+MASTER.LOADER.STYLE_BOOTSTRAP = {
+    url: './assets/css/bootstrap.min.css',
+    sri: null,
+    less: false
+};
+MASTER.LOADER.STYLE_DANMAQ = {
+    url: './assets/less/style.less',
+    sri: null,
+    less: true
+};
 Object.freeze(MASTER);
 
 // ========================================================
 // 主なスキルをランダムで選択するロジック
+let qCache = {};
 const SS = {
-    removeText: q => q.removeClass('achieve-text').text('')
+    removeText: q => q.removeClass('achieve-text').text(''),
+    STRATEGIES: [new STRATEGY.interface()],
+    selector: v => `#achieve li[data-achieve="${v}"]`,
+    weight: q => Number.parseInt(q.data('p')),
+    select: v => ({
+        k: v,
+        v: TAG.weightChoice($(SS.selector(v)), SS.weight)
+    }),
+    show: h => {
+        TAG.show(h.v);
+        STRATEGY.run(SS.STRATEGIES, h);
+    },
+    deploy: () => MASTER.SKILLS.AVAILS.map(SS.select).forEach(SS.show)
 };
 
 class SSImage extends STRATEGY.interface {
@@ -189,25 +240,11 @@ class SSText extends STRATEGY.interface {
 }
 
 SS.STRATEGIES = [new SSImage(), new SSIcon(), new SSText()];
-SS.selector = v => `#achieve li[data-achieve="${v}"]`;
-SS.weight = q => Number.parseInt(q.data('p'));
-SS.select =
-    v => ({
-        k: v,
-        v: TAG.weightChoice($(SS.selector(v)), SS.weight)
-    });
-SS.show =
-    h => {
-        TAG.show(h.v);
-        STRATEGY.run(SS.STRATEGIES, h);
-    };
-// USING jQuery   
-SS.deploy =
-    () => MASTER.SKILLS.AVAILS.map(SS.select).forEach(SS.show);
 Object.freeze(SS);
 
 // ========================================================
 // 主な作品を背景スクロールするロジック
+let innerHeightCache = -1;
 const WORKS = {
     alpha: a => Math.min(Math.abs(a - 0.5) * 3.0, 1.0),
     getIllustFname: (c, m) => `${c}-${MATH.randI(m, true) + 1}.jpg`,
@@ -229,46 +266,53 @@ const WORKS = {
             const c = { class: 'text-xs-right' };
             const cap = TAG.make('figcaption', c);
             return cap.append(MASTER.MSG.PLAYER);
-        }
-};
-WORKS.offsetAndBGColor =
-    (wt, wh, q) => {
-        const rc = WORKS.size(q);
-        const bgh = rc.w / MASTER.WORKS.BG_AS;
-        const a = MATH.easeOISine((wt + wh - rc.t) / (wh + rc.h));
-        return {
-            o: (rc.h + bgh) * a - bgh,
-            c: CSS.whiteA(WORKS.alpha(a))
-        };
-    };
-WORKS.scroll =
-    (wt, wh, sel) => {
-        const q = $(sel);
-        const data = WORKS.offsetAndBGColor(wt, wh, q);
-        q.css('background-position', `center ${data.o}px`);
-        $(`${sel} .overcard`).css('background-color', data.c);
-    };
-WORKS.selectIllust =
-    MASTER.WORKS.USE_ILLUST ?
-    () => {
-        const q = $('.work-illust');
-        const f = WORKS.getIllustFname(q.data('cat'), q.data('max'));
-        q.css('background-image', CSS.url(MASTER.URI.IMG_WORKS + f));
-    } : () => {};
-WORKS.select =
-    () => {
-        MASTER.WORKS.SHARED.forEach(v => $(v).hide());
-        MASTER.WORKS.AVAILS.forEach(v => TAG.show($(v)));
-        WORKS.selectIllust();
-    };
-WORKS.selectAll =
-    s =>
-    MASTER.WORKS.AVAILS_ALL.forEach(
-        n => WORKS.scroll(s, innerHeight, n));
-WORKS.showFigure =
-    name => {
+        },
+    offsetAndBGColor:
+        (wt, wh, q, rc) => {
+            rc = rc || WORKS.size(q);
+            const bgh = rc.w / MASTER.WORKS.BG_AS;
+            const a = MATH.easeOISine((wt + wh - rc.t) / (wh + rc.h));
+            return {
+                o: (rc.h + bgh) * a - bgh,
+                c: STYLE.whiteA(WORKS.alpha(a)),
+                rc: rc
+            };
+        },
+    scroll:
+        (wt, wh, sel) => {
+            const set =
+                sel in qCache ? qCache[sel] : (qCache[sel] = {
+                    q: $(sel),
+                    o: $(`${sel} .overcard`),
+                    rc: null
+                });
+            const q = $(sel);
+            const data = WORKS.offsetAndBGColor(wt, wh, set.q, set.rc);
+            set.rc = data.rc;
+            set.q.css('background-position', `center ${data.o}px`);
+            set.o.css('background-color', data.c);
+        },
+    selectIllust: MASTER.WORKS.USE_ILLUST ?
+        () => {
+            const q = $('.work-illust');
+            const f = WORKS.getIllustFname(q.data('cat'), q.data('max'));
+            q.css('background-image', STYLE.url(MASTER.URI.IMG_WORKS + f));
+        } : () => {},
+    select:
+        () => {
+            MASTER.WORKS.SHARED.forEach(v => $(v).hide());
+            MASTER.WORKS.AVAILS.forEach(v => TAG.show($(v)));
+            WORKS.selectIllust();
+        },
+    selectAll: s => {
+        const h = innerHeightCache > 0 ? innerHeightCache :
+            (innerHeightCache = innerHeight);
+        MASTER.WORKS.AVAILS_ALL.forEach(
+            n => WORKS.scroll(s, h, n));
+    },
+    showFigure: name => {
         const q = $(name + ' figure');
-        if (WIDTH.uplg() && CSS.isDisplay($(name)) && q.length) {
+        if (WIDTH.uplg() && STYLE.isDisplay($(name)) && q.length) {
             const t = q.data('type');
             if (!q.children().length && t) {
                 const params = WORKS.paramYoutube(q.data('src'));
@@ -277,72 +321,178 @@ WORKS.showFigure =
                 }
             }
         }
-    };
-WORKS.showFigureAll =
-    () => MASTER.WORKS.FIGURES.forEach(WORKS.showFigure);
+    },
+    showFigureAll:
+        () => MASTER.WORKS.FIGURES.forEach(WORKS.showFigure)
+};
 Object.freeze(WORKS);
 
 // ========================================================
 // ナビゲーションバーの制御をするロジック
 const NAV = {
     top: s => s <= 64,
-    toggle: (q, s) => {}
-};
-NAV.toggle =
-    (q, s) =>
-    CSS.toggleClass(
-        q, NAV.top(s), 'navbar-expand navbar-dark', 'navbar-light')
-NAV.scroll =
-    o => {
-        const target = $(o.hash);
+    toggle:
+        (q, s) =>
+        STYLE.toggleClass(
+            q, NAV.top(s), 'navbar-expand navbar-dark', 'navbar-light'),
+    scroll:
+        (p, ms) =>
+        $('html, body').animate({ scrollTop: p }, ms, 'swing'),
+    anchor: o => {
+        const hash = o.currentTarget.hash;
+        const target = $(hash);
         if (!target.length) {
             return true;
         }
-        const params = { scrollTop: target.offset().top };
-        $('html,body').animate(params, 650, 'swing');
-        history.pushState(null, null, o.hash);
+        NAV.scroll(target.offset().top, 650);
+        history.pushState(null, null, hash);
         return false;
-    };
-NAV.cons = (i, q) => console.log(i, q);
+    }
+};
 Object.freeze(NAV);
 
 // ========================================================
-// メイン ロジック
-const on_scroll =
+// メイン ハンドラ
+const HANDLER = {
+    scroll:
+        () => {
+            const scr = $(window).scrollTop();
+            WORKS.selectAll(scr);
+            NAV.toggle($('nav'), scr);
+        },
+    resized:
+        () => {
+            qCache = {};
+            innerHeightCache = -1;
+            HANDLER.scroll();
+            WORKS.showFigureAll();
+        },
+    ready:
+        () => {
+            $('#achieve li').hide();
+            SS.deploy();
+            WORKS.select();
+            $('a[href^="#"]').click(NAV.anchor);
+            $('.preload').removeClass('preload');
+            HANDLER.resized();
+        },
+};
+Object.freeze(HANDLER);
+
+// ========================================================
+// ハンドリング
+const setHandle =
     () => {
-        const scr = $(this).scrollTop();
-        WORKS.selectAll(scr);
-        NAV.toggle($('nav'), scr);
+        $(HANDLER.ready);
+        $(window).scroll(HANDLER.scroll);
+        $(window).resize(HANDLER.resized);
     };
+/*
+// ========================================================
+// ローダ
+const LOADER = {
+    head: document.getElementsByTagName('head')[0],
+    scriptParams:
+        (url, sri) => Object.assign(
+            sri ? { integrity: sri } : {}, {
+                async: 'async',
+                defer: 'defer',
+                crossorigin: 'anonymous',
+                type: 'application/javascript',
+                src: url
+            }),
+    scriptTag:
+        (url, sri) =>
+        Object.assign(
+            document.createElement('script'),
+            LOADER.scriptParams(url, sri)),
+    loadScript:
+        (url, sri, cb) => {
+            const script = LOADER.scriptTag(url, sri);
+            let loaded =
+                e => {
+                    const state = e.readyState;
+                    if (!state || state === 'loaded' || state === 'complete') {
+                        loaded = () => {};
+                        cb ? cb() : (() => {})();
+                        if (LOADER.head && script.parentNode) {
+                            LOADER.head.removeChild(script);
+                        }
+                    }
+                };
+            LOADER.head.appendChild(script);
+            script.onload = script.onreadystatechange = e => loaded(e);
+        },
+    jQuery: cb =>
+        LOADER.loadScript(
+            MASTER.LOADER.SCRIPT_JQUERY.url,
+            MASTER.LOADER.SCRIPT_JQUERY.sri,
+            cb),
+    styleParams:
+        (url, sri, less) => Object.assign(
+            sri ? { integrity: sri } : {}, {
+                crossorigin: 'anonymous',
+                type: 'text/css',
+                rel: less ? 'stylesheet/less' : 'stylesheet',
+                href: url
+            }),
+    styleLinkTag:
+        (url, sri, less) =>
+        Object.assign(
+            document.createElement('link'),
+            LOADER.styleParams(url, sri, less)),
+    loadStyle:
+        (url, sri, less, cb) => {
+            const style = LOADER.styleLinkTag(url, sri);
+            let loaded =
+                e => {
+                    const state = e.readyState;
+                    if (!state || state === 'loaded' || state === 'complete') {
+                        loaded = () => {};
+                        cb ? cb() : (() => {})();
+                    }
+                };
+            LOADER.head.appendChild(style);
+            style.onload = style.onreadystatechange = e => loaded(e);
+        }
+};
 
-const on_ready =
+Object.freeze(LOADER);
+
+LOADER.jQuery(
     () => {
-        WORKS.select();
-        $('#achieve li').hide();
-        SS.deploy();
-        on_resized();
-        //$('a[href^="#"]').click(NAV.scroll);
-        $('a[href^="#"]').click(function() {
-            console.log(this);
-            const target = $(this.hash);
-            if (!target.length) return;
-            const params = { scrollTop: target.offset().top };
-            $('html,body').animate(params, 650, 'swing');
-            window.history.pushState(null, null, this.hash);
-            return false;
-        });
-    };
-
-const on_resized =
-    () => {
-        on_scroll();
-        WORKS.showFigureAll();
-    };
-
-$(on_ready);
-$(window).scroll(on_scroll);
-$(window).resize(on_resized);
-
+        LOADER.loadStyle(
+            MASTER.LOADER.STYLE_BOOTSTRAP.url,
+            MASTER.LOADER.STYLE_BOOTSTRAP.sri,
+            MASTER.LOADER.STYLE_BOOTSTRAP.less,
+        );
+        LOADER.loadStyle(
+            MASTER.LOADER.STYLE_DANMAQ.url,
+            MASTER.LOADER.STYLE_DANMAQ.sri,
+            MASTER.LOADER.STYLE_DANMAQ.less,
+            () => {
+                LOADER.loadScript(
+                    MASTER.LOADER.SCRIPT_LESS.url,
+                    MASTER.LOADER.SCRIPT_LESS.sri);
+            }
+        );
+        LOADER.loadStyle(
+            MASTER.LOADER.STYLE_ANIMATE.url,
+            MASTER.LOADER.STYLE_ANIMATE.sri,
+            MASTER.LOADER.STYLE_ANIMATE.less,
+        );
+        LOADER.loadStyle(
+            MASTER.LOADER.STYLE_FONT_AWESOME.url,
+            MASTER.LOADER.STYLE_FONT_AWESOME.sri,
+            MASTER.LOADER.STYLE_FONT_AWESOME.less,
+        );
+        LOADER.loadScript(
+            MASTER.LOADER.SCRIPT_TETHER.url,
+            MASTER.LOADER.SCRIPT_TETHER.sri,
+            setHandle);
+    });
+*/
+setHandle();
 
 // ========================================================
 // Twitter
