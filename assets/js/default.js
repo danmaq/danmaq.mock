@@ -323,6 +323,7 @@ const on_ready =
         on_resized();
         //$('a[href^="#"]').click(NAV.scroll);
         $('a[href^="#"]').click(function() {
+            console.log(this);
             const target = $(this.hash);
             if (!target.length) return;
             const params = { scrollTop: target.offset().top };
