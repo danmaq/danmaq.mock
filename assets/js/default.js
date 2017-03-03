@@ -292,6 +292,18 @@ NAV.toggle =
     (q, s) =>
     CSS.toggleClass(
         q, NAV.top(s), 'navbar-expand navbar-dark', 'navbar-light')
+NAV.scroll =
+    o => {
+        const target = $(o.hash);
+        if (!target.length) {
+            return true;
+        }
+        const params = { scrollTop: target.offset().top };
+        $('html,body').animate(params, 650, 'swing');
+        history.pushState(null, null, o.hash);
+        return false;
+    };
+NAV.cons = (i, q) => console.log(i, q);
 Object.freeze(NAV);
 
 // ========================================================
@@ -309,6 +321,7 @@ const on_ready =
         $('#achieve li').hide();
         SS.deploy();
         on_resized();
+        //$('a[href^="#"]').click(NAV.scroll);
         $('a[href^="#"]').click(function() {
             const target = $(this.hash);
             if (!target.length) return;
