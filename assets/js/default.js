@@ -1,5 +1,21 @@
 'use strict;'
 
+// ========================================================
+// 基本キャッシュ
+let windowCache = { w: innerWidth, h: innerHeight };
+
+function renewWindowCache() {
+    windowCache = { w: innerWidth, h: innerHeight };
+}
+renewWindowCache();
+
+// ========================================================
+// jQueryキャッシュ
+let qCache = {};
+const qc = e => e in qCache ? qCache[e] : (qCache[e] = $(e));
+
+// ========================================================
+// Strategyパターンのプロトタイプ
 const STRATEGY = {
     interface: class {
         predicate(o) { return true; }
@@ -33,17 +49,17 @@ const WIDTH = {
     uplgw: w => WIDTH.xlw(w) || WIDTH.lgw(w),
     upmdw: w => WIDTH.uplgw(w) || WIDTH.mdw(w),
     upsmw: w => WIDTH.upmdw(w) || WIDTH.smw(w),
-    xs: () => WIDTH.xsw($(window).width()),
-    sm: () => WIDTH.smw($(window).width()),
-    md: () => WIDTH.mdw($(window).width()),
-    lg: () => WIDTH.lgw($(window).width()),
-    xl: () => WIDTH.xlw($(window).width()),
-    losm: () => WIDTH.losmw($(window).width()),
-    lomd: () => WIDTH.lomdw($(window).width()),
-    lolg: () => WIDTH.lolgw($(window).width()),
-    uplg: () => WIDTH.uplgw($(window).width()),
-    upmd: () => WIDTH.upmdw($(window).width()),
-    upsm: () => WIDTH.upsmw($(window).width()),
+    xs: () => WIDTH.xsw(windowCache.w),
+    sm: () => WIDTH.smw(windowCache.w),
+    md: () => WIDTH.mdw(windowCache.w),
+    lg: () => WIDTH.lgw(windowCache.w),
+    xl: () => WIDTH.xlw(windowCache.w),
+    losm: () => WIDTH.losmw(windowCache.w),
+    lomd: () => WIDTH.lomdw(windowCache.w),
+    lolg: () => WIDTH.lolgw(windowCache.w),
+    uplg: () => WIDTH.uplgw(windowCache.w),
+    upmd: () => WIDTH.upmdw(windowCache.w),
+    upsm: () => WIDTH.upsmw(windowCache.w),
 };
 Object.freeze(WIDTH);
 
@@ -71,7 +87,7 @@ Object.freeze(LIST);
 const TAG = {
     make: (n, p) => $(`<${n}>`).attr(p),
     show: q => q.removeClass('invisible').show(),
-    qmap: q => q.map((i, s) => $(s)),
+    qmap: q => q.map((i, s) => qc(s)),
     icon:
         (n, t) => {
             const a = t === undefined ? {} : { 'title': t };
@@ -191,7 +207,6 @@ Object.freeze(MASTER);
 
 // ========================================================
 // 主なスキルをランダムで選択するロジック
-let qCache = {};
 const SS = {
     removeText: q => q.removeClass('achieve-text').text(''),
     STRATEGIES: [new STRATEGY.interface()],
@@ -199,7 +214,7 @@ const SS = {
     weight: q => Number.parseInt(q.data('p')),
     select: v => ({
         k: v,
-        v: TAG.weightChoice($(SS.selector(v)), SS.weight)
+        v: TAG.weightChoice(qc(SS.selector(v)), SS.weight)
     }),
     show: h => {
         TAG.show(h.v);
@@ -245,6 +260,7 @@ Object.freeze(SS);
 // ========================================================
 // 主な作品を背景スクロールするロジック
 let innerHeightCache = -1;
+let wCache = {};
 const WORKS = {
     alpha: a => Math.min(Math.abs(a - 0.5) * 3.0, 1.0),
     getIllustFname: (c, m) => `${c}-${MATH.randI(m, true) + 1}.jpg`,
@@ -281,12 +297,12 @@ const WORKS = {
     scroll:
         (wt, wh, sel) => {
             const set =
-                sel in qCache ? qCache[sel] : (qCache[sel] = {
-                    q: $(sel),
-                    o: $(`${sel} .overcard`),
+                sel in wCache ? wCache[sel] : (wCache[sel] = {
+                    q: qc(sel),
+                    o: qc(`${sel} .overcard`),
                     rc: null
                 });
-            const q = $(sel);
+            const q = qc(sel);
             const data = WORKS.offsetAndBGColor(wt, wh, set.q, set.rc);
             set.rc = data.rc;
             set.q.css('background-position', `center ${data.o}px`);
@@ -294,14 +310,14 @@ const WORKS = {
         },
     selectIllust: MASTER.WORKS.USE_ILLUST ?
         () => {
-            const q = $('.work-illust');
+            const q = qc('.work-illust');
             const f = WORKS.getIllustFname(q.data('cat'), q.data('max'));
             q.css('background-image', STYLE.url(MASTER.URI.IMG_WORKS + f));
         } : () => {},
     select:
         () => {
-            MASTER.WORKS.SHARED.forEach(v => $(v).hide());
-            MASTER.WORKS.AVAILS.forEach(v => TAG.show($(v)));
+            MASTER.WORKS.SHARED.forEach(v => qc(v).hide());
+            MASTER.WORKS.AVAILS.forEach(v => TAG.show(qc(v)));
             WORKS.selectIllust();
         },
     selectAll: s => {
@@ -311,8 +327,8 @@ const WORKS = {
             n => WORKS.scroll(s, h, n));
     },
     showFigure: name => {
-        const q = $(name + ' figure');
-        if (WIDTH.uplg() && STYLE.isDisplay($(name)) && q.length) {
+        const q = qc(name + ' figure');
+        if (WIDTH.uplg() && STYLE.isDisplay(qc(name)) && q.length) {
             const t = q.data('type');
             if (!q.children().length && t) {
                 const params = WORKS.paramYoutube(q.data('src'));
@@ -337,10 +353,10 @@ const NAV = {
             q, NAV.top(s), 'navbar-expand navbar-dark', 'navbar-light'),
     scroll:
         (p, ms) =>
-        $('html, body').animate({ scrollTop: p }, ms, 'swing'),
+        qc('html, body').animate({ scrollTop: p }, ms, 'swing'),
     anchor: o => {
         const hash = o.currentTarget.hash;
-        const target = $(hash);
+        const target = qc(hash);
         if (!target.length) {
             return true;
         }
@@ -356,38 +372,39 @@ Object.freeze(NAV);
 const HANDLER = {
     scroll:
         () => {
-            const scr = $(window).scrollTop();
+            const scr = qc(window).scrollTop();
             WORKS.selectAll(scr);
-            NAV.toggle($('nav'), scr);
+            NAV.toggle(qc('nav'), scr);
         },
     resized:
         () => {
-            qCache = {};
+            renewWindowCache();
+            wCache = {};
             innerHeightCache = -1;
+            HANDLER.resizedWithoutClearCache();
+        },
+    resizedWithoutClearCache:
+        () => {
             HANDLER.scroll();
             WORKS.showFigureAll();
         },
     ready:
         () => {
-            $('#achieve li').hide();
+            qc('#achieve li').hide();
             SS.deploy();
             WORKS.select();
-            $('a[href^="#"]').click(NAV.anchor);
-            $('.preload').removeClass('preload');
-            HANDLER.resized();
+            qc('a[href^="#"]').click(NAV.anchor);
+            qc('.preload').removeClass('preload');
+            HANDLER.resizedWithoutClearCache();
         },
+    init:
+        () => {
+            qc(HANDLER.ready);
+            qc(window).scroll(HANDLER.scroll);
+            qc(window).resize(HANDLER.resized);
+        }
 };
 Object.freeze(HANDLER);
-
-// ========================================================
-// ハンドリング
-const setHandle =
-    () => {
-        $(HANDLER.ready);
-        $(window).scroll(HANDLER.scroll);
-        $(window).resize(HANDLER.resized);
-    };
-/*
 // ========================================================
 // ローダ
 const LOADER = {
@@ -406,13 +423,13 @@ const LOADER = {
         Object.assign(
             document.createElement('script'),
             LOADER.scriptParams(url, sri)),
+    loaded: s => !s || s === 'loaded' || s === 'complete',
     loadScript:
         (url, sri, cb) => {
             const script = LOADER.scriptTag(url, sri);
             let loaded =
                 e => {
-                    const state = e.readyState;
-                    if (!state || state === 'loaded' || state === 'complete') {
+                    if (LOADER.loaded(e.readyState)) {
                         loaded = () => {};
                         cb ? cb() : (() => {})();
                         if (LOADER.head && script.parentNode) {
@@ -456,9 +473,8 @@ const LOADER = {
             style.onload = style.onreadystatechange = e => loaded(e);
         }
 };
-
 Object.freeze(LOADER);
-
+/*
 LOADER.jQuery(
     () => {
         LOADER.loadStyle(
@@ -489,10 +505,10 @@ LOADER.jQuery(
         LOADER.loadScript(
             MASTER.LOADER.SCRIPT_TETHER.url,
             MASTER.LOADER.SCRIPT_TETHER.sri,
-            setHandle);
+            HANDLER.init);
     });
 */
-setHandle();
+HANDLER.init();
 
 // ========================================================
 // Twitter
