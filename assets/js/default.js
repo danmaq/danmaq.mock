@@ -210,14 +210,13 @@ Object.freeze(MASTER);
 const SS = {
     removeText: q => q.removeClass('achieve-text').text(''),
     STRATEGIES: [new STRATEGY.interface()],
-    selector: v => `#achieve li[data-achieve="${v}"]`,
+    query: v => $('#achieve').find(`li[data-achieve="${v}"]`),
     weight: q => Number.parseInt(q.data('p')),
     select: v => ({
         k: v,
-        v: TAG.weightChoice($(SS.selector(v)), SS.weight)
+        v: TAG.weightChoice(SS.query(v), SS.weight)
     }),
     show: h => {
-        console.log(h);
         TAG.show(h.v);
         STRATEGY.run(SS.STRATEGIES, h);
     },
@@ -295,14 +294,15 @@ const WORKS = {
                 rc: rc
             };
         },
+    createWCache: sel => {
+        const s = qc('#works').find(sel);
+        return { q: s, o: s.find('.overcard'), rc: null };
+    },
     scroll:
         (wt, wh, sel) => {
             const set =
-                sel in wCache ? wCache[sel] : (wCache[sel] = {
-                    q: qc(sel),
-                    o: qc(`${sel} .overcard`),
-                    rc: null
-                });
+                sel in wCache ? wCache[sel] :
+                (wCache[sel] = WORKS.createWCache(sel));
             const data = WORKS.offsetAndBGColor(wt, wh, set.q, set.rc);
             set.rc = data.rc;
             set.q.css('background-position', `center ${data.o}px`);
@@ -316,11 +316,12 @@ const WORKS = {
         } : () => {},
     select:
         () => {
-            MASTER.WORKS.SHARED.forEach(v => qc(v).hide());
-            MASTER.WORKS.AVAILS.forEach(v => TAG.show(qc(v)));
+            const q = qc('#works');
+            MASTER.WORKS.SHARED.forEach(v => q.find(v).hide());
+            MASTER.WORKS.AVAILS.forEach(v => TAG.show(q.find(v)));
             WORKS.selectIllust();
         },
-    selectAll: s => {
+    scrollAll: s => {
         const h = innerHeightCache > 0 ? innerHeightCache :
             (innerHeightCache = innerHeight);
         MASTER.WORKS.AVAILS_ALL.forEach(
@@ -363,6 +364,18 @@ const NAV = {
         NAV.scroll(target.offset().top, 650);
         history.pushState(null, null, hash);
         return false;
+    },
+    addTopicEffect: scb => {
+        const each =
+            (i, v) => {
+                const q = $(v);
+                if (q.offset().top > scb) {
+                    return;
+                }
+                q.addClass('animated slideInUp');
+                q.parent().addClass('animated fadeIn');
+            };
+        $('.subtitle :not(.animated)').each(each);
     }
 };
 Object.freeze(NAV);
@@ -373,8 +386,9 @@ const HANDLER = {
     scroll:
         () => {
             const scr = qc(window).scrollTop();
-            WORKS.selectAll(scr);
+            WORKS.scrollAll(scr);
             NAV.toggle(qc('nav'), scr);
+            NAV.addTopicEffect(scr + qc(window).height());
         },
     resized:
         () => {
@@ -390,7 +404,7 @@ const HANDLER = {
         },
     ready:
         () => {
-            qc('#achieve li').hide();
+            qc('#achieve').find('li').hide();
             SS.deploy();
             WORKS.select();
             qc('a[href^="#"]').click(NAV.anchor);
