@@ -1,27 +1,15 @@
-<?xml version="1.0" standalone="no"?>
-<!-- Generator: Adobe Fireworks 10, Export SVG Extension by Aaron Beall (http://fireworks.abeall.com) . Version: 0.6.1  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg id="Untitled-%u30DA%u30FC%u30B8%201" viewBox="0 0 400 400" style="background-color:#ffffff00" version="1.1"
-	xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
-	x="0px" y="0px" width="400px" height="400px"
->
-	<defs>
-		<linearGradient id="gradient1" x1="50%" y1="0%" x2="50%" y2="100%">
-			<stop stop-color="#0d1077" stop-opacity="1" offset="0%"/>
-			<stop stop-color="#7740c2" stop-opacity="1" offset="100%"/>
-		</linearGradient>
-		<linearGradient id="gradient2" x1="42.3077%" y1="0%" x2="42.3077%" y2="100%">
-			<stop stop-color="#3e269a" stop-opacity="1" offset="0%"/>
-			<stop stop-color="#4d2da5" stop-opacity="1" offset="100%"/>
-		</linearGradient>
-	</defs>
-	<g id="%u80CC%u666F">
-		<g>
-			<rect x="0" y="0" width="400" height="400" fill="url(#gradient1)"/>
-			<path d="M 200 31 L 242.5224 154.3954 L 378.4753 154.9245 L 269.7277 234.392 L 314.2345 367 L 200 284.9171 L 85.7655 367 L 130.2724 234.392 L 21.5247 154.9245 L 157.4776 154.3954 L 200 31 Z" fill="#ffffff"/>
-			<path d="M 230 205 L 230 221 L 252 236 L 252 190 L 230 205 ZM 148 193 L 148 206 L 155 206 L 155 193 L 148 193 ZM 157 192.5 L 157 233.5 C 157 239.322 160.678 243 166.5 243 L 217.5 243 C 223.322 243 227 239.322 227 233.5 L 227 192.5 C 227 186.678 223.322 183 217.5 183 L 166.5 183 C 160.678 183 157 186.678 157 192.5 Z" fill="url(#gradient2)"/>
-		</g>
-	</g>
-	<g id="%u30EC%u30A4%u30E4%u30FC%201">
-	</g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" style="background-color:#ffffff00">
+  <defs>
+    <linearGradient id="a" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop stop-color="#0d1077" offset="0%"/>
+      <stop stop-color="#7740c2" offset="100%"/>
+    </linearGradient>
+    <linearGradient id="b" x1="42.3%" x2="42.3%" y1="0%" y2="100%">
+      <stop stop-color="#3e269a" offset="0%"/>
+      <stop stop-color="#4d2da5" offset="100%"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#a)" d="M0 0h400v400H0z"/>
+  <path fill="#fff" d="M200 31l42.5 123.4 136 .5-108.8 79.3L314.2 367 200 285 85.8 367l44.5-132.6L21.5 155l136-.6L200 31z"/>
+  <path fill="url(#b)" d="M230 205v16l22 15v-46l-22 15zm-82-12v13h7v-13h-7zm9-.5v41c0 5.8 3.7 9.5 9.5 9.5h51c5.8 0 9.5-3.7 9.5-9.5v-41c0-5.8-3.7-9.5-9.5-9.5h-51c-5.8 0-9.5 3.7-9.5 9.5z"/>
 </svg>
