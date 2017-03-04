@@ -87,7 +87,7 @@ Object.freeze(LIST);
 const TAG = {
     make: (n, p) => $(`<${n}>`).attr(p),
     show: q => q.removeClass('invisible').show(),
-    qmap: q => q.map((i, s) => qc(s)),
+    qmap: q => q.map((i, s) => $(s)),
     icon:
         (n, t) => {
             const a = t === undefined ? {} : { 'title': t };
@@ -214,9 +214,10 @@ const SS = {
     weight: q => Number.parseInt(q.data('p')),
     select: v => ({
         k: v,
-        v: TAG.weightChoice(qc(SS.selector(v)), SS.weight)
+        v: TAG.weightChoice($(SS.selector(v)), SS.weight)
     }),
     show: h => {
+        console.log(h);
         TAG.show(h.v);
         STRATEGY.run(SS.STRATEGIES, h);
     },
@@ -302,7 +303,6 @@ const WORKS = {
                     o: qc(`${sel} .overcard`),
                     rc: null
                 });
-            const q = qc(sel);
             const data = WORKS.offsetAndBGColor(wt, wh, set.q, set.rc);
             set.rc = data.rc;
             set.q.css('background-position', `center ${data.o}px`);
