@@ -388,7 +388,7 @@ const HANDLER = {
             const scr = qc(window).scrollTop();
             WORKS.scrollAll(scr);
             NAV.toggle(qc('nav'), scr);
-            NAV.addTopicEffect(scr + qc(window).height());
+            NAV.addTopicEffect(scr + qc(window).height() * 1.2);
         },
     resized:
         () => {
