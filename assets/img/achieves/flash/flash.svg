@@ -28,17 +28,11 @@
     <linearGradient id="l" x1="-95.1" x2="421.5" y1="101.6" y2="101.6" xlink:href="#b" gradientUnits="userSpaceOnUse" gradientTransform="translate(345.2 407.4)"/>
     <linearGradient id="i" x1="1877.6" x2="1734.3" y1="914.5" y2="323.3" xlink:href="#c" gradientUnits="userSpaceOnUse" gradientTransform="translate(-1257.4 -126.9)"/>
     <linearGradient id="h" x1="-34.4" x2="-34.4" y1="872.6" y2="46.6" xlink:href="#d" gradientUnits="userSpaceOnUse" gradientTransform="translate(63.4 2.9)"/>
-    <linearGradient id="j" x1="509.3" x2="509.3" y1="753.1" y2="766.4" xlink:href="#e" gradientUnits="userSpaceOnUse" gradientTransform="translate(.1 .2)"/>
-    <linearGradient id="k" x1="482.5" x2="482.5" y1="781.4" y2="714.4" xlink:href="#f" gradientUnits="userSpaceOnUse"/>
   </defs>
   <rect width="940" height="940.1" fill="url(#g)" ry="0"/>
   <path fill="url(#h)" d="M22.5 958.5L0 936V0l23 23 23 23-.5 467.5L45 981l-22.5-22.5z"/>
   <rect width="940" height="940.1" x="46" y="46" fill="url(#i)" ry="0"/>
   <path fill="red" d="M250.2 767v-58.4l10-1c48-4.8 71-15.2 101.7-46 35-36 60-81 99-186.7 27-70 49-113 83-161 30-42 77-76 130-93 26-9 61-15 84-15h8v117l-10 1c-26.6 2-48 8-68.8 21-27 16-61 57-80 98-6.5 14-10 13 44 13h47v119h-73l-72.4.2-8 17.7c-20.5 45.2-44.4 88-67.8 121-45 63.4-105 98-189 108.5-10 1-22 2-28 2h-11v-58z"/>
   <path fill="maroon" d="M250.2 754.8v-58.3l10-1c48-4.8 71-15 101.8-46 36-35.8 60-80.8 99.7-186.6C488 393 510 350 544 302c30-41.8 77.3-75.6 130.3-93 26-8.7 61.6-15 84-15h8.5v117l-10 1c-26.5 2.3-48 9-68.7 21-27 16.2-61 57.6-80 98.5-6 14.2-10 13 44 13h47V563l-72 .3-72.4.4-8 17.7c-20.5 45.3-44.4 88-68 121-45 63.5-105 98-189 108.6-9.5 1-22 2-28 2h-11v-58z"/>
-  <text x="495.7" y="767.3" fill="url(#j)" style="line-height:125%;-inkscape-font-specification:Verdana Bold" font-size="32" font-weight="bold" letter-spacing="0" word-spacing="0" font-family="Verdana">
-    <tspan x="495.7" y="767.3">R</tspan>
-  </text>
-  <path fill="none" stroke="url(#k)" stroke-width="15.8" d="M535.4 725.6a53.3 53.3 0 1 1-106.5 0 53.3 53.3 0 1 1 106 0z" transform="matrix(.4 0 0 .4 324.3 479.4)"/>
   <path fill="url(#l)" d="M250 760v-58l10-1c48-4.8 71-15 101.8-46 36-35.8 60-80.8 99.8-186.6 26.3-70 48-112.6 82.4-160.4 29.8-41.8 77-75.6 130-93 26.2-8.7 61.7-15 84-15h8.6v116.4l-10 1c-26.4 2.2-48 8.8-68.6 21-27.6 16-61.4 57.5-80.5 98.4-6.6 14.2-10.2 13 43.7 13h47.3v118.6l-72.6.3-73 .4-8 18c-21 46-45 88-68 121-45 64-105 98-189 109-9 1-22 2-28 2h-10v-58z"/>
 </svg>
