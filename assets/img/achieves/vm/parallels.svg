@@ -1,20 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-<svg
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   version="1.0"
-   width="79"
-   height="79"
-   viewBox="0 -3 79 79"
-   id="svg2"
-   xml:space="preserve"><defs
-   id="defs203" />
-<g transform="matrix(1.5242857,0,0,1.5242857,-39.829584,-26.595914)"
-   id="g2585"><path
-     d="M 35.67,15.95 C 38.01,15.95 39.81,17.75 39.81,20.09 L 39.81,62.75 C 39.81,64.91 38.01,66.89 35.67,66.89 C 33.33,66.89 31.53,64.91 31.53,62.75 L 31.53,20.09 C 31.53,17.75 33.33,15.95 35.67,15.95 L 35.67,15.95 z"
-     id="path4"
-     style="fill:#ff1a24;fill-rule:evenodd;stroke:none;stroke-width:0.28;stroke-linecap:butt;stroke-linejoin:bevel" /><path
-     d="M 52.23,15.95 C 54.57,15.95 56.37,17.75 56.37,20.09 L 56.37,62.75 C 56.37,64.91 54.57,66.89 52.23,66.89 C 50.07,66.89 48.09,64.91 48.09,62.75 L 48.09,20.09 C 48.09,17.75 50.07,15.95 52.23,15.95 L 52.23,15.95 z"
-     id="path6"
-     style="fill:#ff1a24;fill-rule:evenodd;stroke:none;stroke-width:0.28;stroke-linecap:butt;stroke-linejoin:bevel" /></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 -3 79 79">
+  <g fill="#ff1a24" fill-rule="evenodd" stroke-width=".3" stroke-linejoin="bevel">
+    <path d="M14.5-2.3C18-2.3 21 .5 21 4v65c0 3.3-3 6.4-6.5 6.4s-6.3-3-6.3-6.3V4c0-3.5 2.8-6.3 6.3-6.3zM39.8-2.3C43.4-2.3 46 .5 46 4v65c0 3.3-2.6 6.4-6.2 6.4-3.3 0-6.3-3-6.3-6.3V4c0-3.5 3-6.3 6.3-6.3z"/>
+  </g>
+</svg>
