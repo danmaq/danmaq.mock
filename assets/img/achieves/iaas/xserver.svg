@@ -1,16 +1,6 @@
-<?xml version="1.0" standalone="no"?>
-<!-- Generator: Adobe Fireworks 10, Export SVG Extension by Aaron Beall (http://fireworks.abeall.com) . Version: 0.6.1  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg id="XSERVER.fw-%u30DA%u30FC%u30B8%201" viewBox="0 0 1045 1068" style="background-color:#ffffff00" version="1.1"
-	xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
-	x="0px" y="0px" width="1045px" height="1068px"
->
-	<g id="%u30EC%u30A4%u30E4%u30FC%201">
-		<g>
-			<path d="M 586.6666 534.0001 L 813.8053 302.7316 L 1045 534.0001 L 813.8053 765.2685 L 586.6666 534.0001 Z" stroke="#ffffff00" stroke-width="21" fill="#1b63a7"/>
-			<path d="M 289.9423 836.1196 L 511.8367 610.1906 L 737.647 841.451 L 511.8367 1067.3334 L 289.9423 836.1196 Z" stroke="#ffffff00" stroke-width="21" fill="#232424"/>
-			<path d="M 0 534.0001 L 216.8299 308.0634 L 437.4419 534.0001 L 216.83 759.9366 L 0 534.0001 Z" stroke="#ffffff00" stroke-width="21" fill="#232424"/>
-			<path d="M 289.9422 231.8806 L 511.8367 0.6667 L 737.647 226.549 L 511.8367 457.8096 L 289.9422 231.8806 Z" stroke="#ffffff00" stroke-width="21" fill="#232424"/>
-		</g>
-	</g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1045 1068" style="background-color:#ffffff00">
+  <g stroke="#ffffff00" stroke-width="21">
+    <path fill="#1b63a7" d="M586.7 534l227-231.3L1045 534 813.8 765.3 586.8 534z"/>
+    <path fill="#232424" d="M290 836l221.8-225.8 225.8 231.3-225.8 225.8-222-231.2zM0 534l216.8-226 220.6 226-220.6 226L0 534zm290-302L511.7.6l225.8 225.8-225.8 231.3-222-226z"/>
+  </g>
 </svg>
