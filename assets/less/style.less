@@ -1,12 +1,21 @@
 @charset "UTF-8";
 
-@base: #BBBFDC; 
+@base: #BBBFDC;
 @baseDark: #666099;
 @lightGrey: #999999;
 @darkGrey: #666666;
 @white: #ffffff;
 @font-stack: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
 
+.col-xs-offset-0 {
+	margin-left: 0;
+}
+
+img
+{
+    width: 100%;
+    height: auto;
+}
 h1, .display-1, .display-2, .display-3, .display-4
 {
     font-weight: 100;
@@ -48,6 +57,7 @@ h4, h5, h6
     {
         background-color: @baseDark;
         padding: 0rem;
+        z-index: 32767;
     }
     .navbar-nav
     {
@@ -131,7 +141,7 @@ h4, h5, h6
         background-color: rgba(255, 255, 255, 0.5);
         article
         {
-            min-height: 16rem;
+            min-height: 18rem;
         }
         h3
         {
@@ -154,17 +164,9 @@ h4, h5, h6
     }
 }
 
-.about-card
+.about-card article
 {
-    article
-    {
-        min-height: 17rem;
-    }
-    img
-    {
-        width: 100%;
-        height: auto;
-    }
+    min-height: 17rem;
 }
 
 #achieve
@@ -172,7 +174,7 @@ h4, h5, h6
     padding: 0rem;
     li
     {
-        min-height: 7rem;
+        min-height: 7.2rem;
         list-style-type: none;
     }
     .achieve-text
@@ -220,24 +222,41 @@ h4, h5, h6
 .achieve-video { background-color: #f99; }
 .achieve-graphic { background-color: #99f; }
 
-.card-thc
+.work-thc
 {
     background-image: url("../img/works/thc-jacket.jpg");
 }
-.card-atc
+.work-atc
 {
     background-image: url("../img/works/atc-rein-ryoko.jpg");
 }
-.card-thm
+.work-thm
 {
     background-image: url("../img/works/thm-jacket.jpg");
 }
-.card-em
+.work-em
 {
     background-image: url("../img/works/em-jacket.jpg");
 }
 
-.hidden { display: none; }
+#email-form .submit-area
+{
+    padding-left: 0rem;
+    padding-right: 0rem;
+}
+
+.list-unstyled li
+{
+    margin-bottom: 1rem;
+}
+
+#sns .btn.rounded-circle
+{
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50% !important;
+    font-size: 4.6rem;
+}
 
 .d-copy
 {
@@ -245,4 +264,12 @@ h4, h5, h6
     border-top: 0.2rem solid @baseDark;
     font-size: 80%;
     padding-top: 1rem;
+    a
+    {
+        color: rgba(64, 64, 255, .5);
+    }
+    a:hover, a:focus
+    {
+        color: rgba(64, 64, 255, .75);
+    }
 }

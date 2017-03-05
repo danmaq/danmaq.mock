@@ -1,29 +1,19 @@
-<?xml version="1.0" standalone="no"?>
-<!-- Generator: Adobe Fireworks 10, Export SVG Extension by Aaron Beall (http://fireworks.abeall.com) . Version: 0.6.1  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg id="fireworks.fw-%u30DA%u30FC%u30B8%201" viewBox="0 0 480 467" style="background-color:#ffffff00" version="1.1"
-	xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
-	x="0px" y="0px" width="480px" height="467px"
->
-	<defs>
-		<linearGradient id="gradient1" x1="0%" y1="0%" x2="100.1042%" y2="99.8929%">
-			<stop stop-color="#e5ed00" stop-opacity="1" offset="0%"/>
-			<stop stop-color="#dacf00" stop-opacity="1" offset="100%"/>
-		</linearGradient>
-		<linearGradient id="gradient2" x1="0%" y1="0.2525%" x2="99.9183%" y2="99.5791%">
-			<stop stop-color="#454100" stop-opacity="1" offset="0%"/>
-			<stop stop-color="#312d00" stop-opacity="1" offset="100%"/>
-		</linearGradient>
-		<linearGradient id="gradient3" x1="-0.2976%" y1="0%" x2="87.8968%" y2="99.359%">
-			<stop stop-color="#e3e700" stop-opacity="1" offset="0%"/>
-			<stop stop-color="#ddd700" stop-opacity="1" offset="100%"/>
-		</linearGradient>
-	</defs>
-	<g id="%u80CC%u666F">
-		<path d="M 0 0 L 480 0 L 480 467 L 0 467 L 0 0 Z" fill="url(#gradient1)"/>
-		<path d="M 37 36 L 445 36 L 445 432 L 37 432 L 37 36 Z" fill="url(#gradient2)"/>
-		<path d="M 192 119 C 193 127 193.5 136 194.5 153 L 115 153 L 115 210 L 187 210 L 187 244 L 115 244 L 115 327 L 74 327 L 74 119 L 192 119 ZM 269.5 280.5 L 291.5 168 L 329.5 168 L 350.5 281.5 L 372.5 168 L 410 168 L 410 173.5 L 370 327 L 329.5 327 L 308.5 214.5 L 281.5 327 L 242.5 327 L 205.5 168 L 249.5 168 L 269.5 280.5 Z" fill="url(#gradient3)"/>
-	</g>
-	<g id="%u30EC%u30A4%u30E4%u30FC%201">
-	</g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 467" style="background-color:#ffffff00">
+  <defs>
+    <linearGradient id="a" x1="0%" x2="100.1%" y1="0%" y2="99.9%">
+      <stop stop-color="#e5ed00" offset="0%"/>
+      <stop stop-color="#dacf00" offset="100%"/>
+    </linearGradient>
+    <linearGradient id="b" x1="0%" x2="99.9%" y1=".3%" y2="99.6%">
+      <stop stop-color="#454100" offset="0%"/>
+      <stop stop-color="#312d00" offset="100%"/>
+    </linearGradient>
+    <linearGradient id="c" x1="-.3%" x2="87.9%" y1="0%" y2="99.4%">
+      <stop stop-color="#e3e700" offset="0%"/>
+      <stop stop-color="#ddd700" offset="100%"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#a)" d="M0 0h480v467H0V0z"/>
+  <path fill="url(#b)" d="M37 36h408v396H37V36z"/>
+  <path fill="url(#c)" d="M192 119c1 8 1.5 17 2.5 34H115v57h72v34h-72v83H74V119h118zm77.5 161.5l22-112.5h38l21 113.5 22-113.5H410v5.5L370 327h-40.5l-21-112.5-27 112.5h-39l-37-159h44l20 112.5z"/>
 </svg>

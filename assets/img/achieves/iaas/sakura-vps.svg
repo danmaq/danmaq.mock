@@ -1,9 +1,3 @@
-<?xml version="1.0" standalone="no"?>
-<!-- Generator: Adobe Fireworks 10, Export SVG Extension by Aaron Beall (http://fireworks.abeall.com) . Version: 0.6.1  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg id="Untitled-%u30DA%u30FC%u30B8%201" viewBox="0 0 1200 762" style="background-color:#ffffff00" version="1.1"
-	xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
-	x="0px" y="0px" width="1200px" height="762px"
->
-	<path d="M 303.5 95.5 L 545 94.5 L 491.5 332 L 696 332.5 L 613.5 667.5 L 372.5 668 L 430 430 L 226.5 430 L 303.5 95.5 ZM 207.0698 0 L 88 523.875 L 302.3256 523.875 L 244 761 L 707.1628 762 L 834 239 L 619.5 237 L 675 0.5 L 207.0698 0 ZM 746.875 0 L 711.5964 143.251 L 854.8464 143.251 L 890.125 0 L 746.875 0 ZM 961.75 0 L 926.4714 143.251 L 1069.7214 143.251 L 1105 0 L 961.75 0 ZM 894.9941 238.7516 L 859.7156 382.0026 L 1002.9656 382.0026 L 1038.2441 238.7516 L 894.9941 238.7516 Z" fill="#666666"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="87 0 1020 762" style="background-color:#ffffff00">
+  <path fill="#666" d="M303.5 95.5l241.5-1L491.5 332l204.5.5-82.5 335-241 .5L430 430H226.5l77-334.5zM207 0L88 524h214.3L244 761l463.2 1L834 239l-214.5-2L675 .5 207 0zm540 0l-35.4 143.3h143.2L890 0H747zm214.8 0l-35.3 143.3h143.2L1105 0H961.7zM895 238.8L859.7 382H1003l35.2-143.2H895z"/>
 </svg>

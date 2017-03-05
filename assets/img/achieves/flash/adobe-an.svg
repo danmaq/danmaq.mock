@@ -1,34 +1,24 @@
-<?xml version="1.0" standalone="no"?>
-<!-- Generator: Adobe Fireworks 10, Export SVG Extension by Aaron Beall (http://fireworks.abeall.com) . Version: 0.6.1  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg id="animate.fw-%u30DA%u30FC%u30B8%201" viewBox="0 0 1024 999" style="background-color:#ffffff00" version="1.1"
-	xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
-	x="0px" y="0px" width="1024px" height="999px"
->
-	<defs>
-		<linearGradient id="gradient1" x1="0%" y1="0%" x2="99.8378%" y2="99.9169%">
-			<stop stop-color="#fa4c26" stop-opacity="1" offset="0%"/>
-			<stop stop-color="#fa300d" stop-opacity="1" offset="100%"/>
-		</linearGradient>
-		<linearGradient id="gradient2" x1="0%" y1="0.2717%" x2="100.0882%" y2="99.6377%">
-			<stop stop-color="#220500" stop-opacity="1" offset="0%"/>
-			<stop stop-color="#220500" stop-opacity="1" offset="100%"/>
-		</linearGradient>
-		<linearGradient id="gradient3" x1="8.99%" y1="10.9111%" x2="99.6015%" y2="100.528%">
-			<stop stop-color="#fa451f" stop-opacity="1" offset="0%"/>
-			<stop stop-color="#fa3713" stop-opacity="1" offset="100%"/>
-		</linearGradient>
-		<linearGradient id="gradient4" x1="50.1326%" y1="0%" x2="99.2042%" y2="100.5236%">
-			<stop stop-color="#220500" stop-opacity="1" offset="0%"/>
-			<stop stop-color="#220500" stop-opacity="1" offset="100%"/>
-		</linearGradient>
-	</defs>
-	<g id="%u80CC%u666F">
-		<rect x="0" y="0" width="1024" height="999" fill="url(#gradient1)"/>
-		<rect x="42.3552" y="42.3516" width="941.781" height="916.7881" fill="url(#gradient2)"/>
-		<path d="M 404.8662 233.1322 L 544.3893 699 L 467.1533 699 C 452.2044 659.1396 442.2384 613.8429 427.2896 569 L 292.7494 569 L 257.8686 701 L 186 701 L 186 688.5436 C 195.9659 658.6484 203.4404 626.5549 213.4063 596.6596 C 238.3212 509.4651 262.8516 422.2706 287.7664 335.076 C 296.3333 303.3333 312.6813 265.3204 310.1898 232.9339 C 402.3747 232.9339 407.3577 233.1322 404.8662 233.1322 ZM 407.3577 497 L 312.6813 497 L 360.0195 305.1721 L 407.3577 497 ZM 825.5255 424.7618 C 828.017 429.7444 833 444.692 833 452.1658 L 833 701 L 756 701 L 756 456.8553 C 736.0681 416.995 726.0706 417.288 696.1727 417.288 C 683.7153 417.288 658.9659 414.7968 649 427.2531 L 649 701 L 572 701 L 572 377.1346 C 596.9149 364.6783 674.1509 347.5324 706.5402 347.5324 C 751.3869 347.5324 803.1022 359.9888 825.5255 424.7618 Z" fill="url(#gradient3)"/>
-		<path d="M 360 306 L 312.75 497 L 407 497 L 360 306 Z" fill="url(#gradient4)"/>
-	</g>
-	<g id="%u30EC%u30A4%u30E4%u30FC%201">
-	</g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 999" style="background-color:#ffffff00">
+  <defs>
+    <linearGradient id="a" x1="0%" x2="99.8%" y1="0%" y2="99.9%">
+      <stop stop-color="#fa4c26" offset="0%"/>
+      <stop stop-color="#fa300d" offset="100%"/>
+    </linearGradient>
+    <linearGradient id="b" x1="0%" x2="100.1%" y1=".3%" y2="99.6%">
+      <stop stop-color="#220500" offset="0%"/>
+      <stop stop-color="#220500" offset="100%"/>
+    </linearGradient>
+    <linearGradient id="c" x1="9%" x2="99.6%" y1="10.9%" y2="100.5%">
+      <stop stop-color="#fa451f" offset="0%"/>
+      <stop stop-color="#fa3713" offset="100%"/>
+    </linearGradient>
+    <linearGradient id="d" x1="50.1%" x2="99.2%" y1="0%" y2="100.5%">
+      <stop stop-color="#220500" offset="0%"/>
+      <stop stop-color="#220500" offset="100%"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#a)" d="M0 0h1024v999H0z"/>
+  <path fill="url(#b)" d="M42.4 42.4h941.8v916.8H42.4z"/>
+  <path fill="url(#c)" d="M405 233l139.4 466h-77.2c-15-40-25-85.2-40-130H292.8L258 701h-72v-12.5c10-30 17.4-62 27.4-91.8 25-87.2 49.5-174.4 74.4-261.6 8.5-31.6 25-69.6 22.4-102H405zm2.4 264h-94.7L360 305.2 407.4 497zm418-72.2c2.6 5 7.6 20 7.6 27.4V701h-77V457c-20-40-30-39.7-59.8-39.7-12.5 0-37.2-2.5-47.2 10V701h-77V377c25-12.3 102.2-29.5 134.5-29.5 45 0 96.6 12.5 119 77.3z"/>
+  <path fill="url(#d)" d="M360 306l-47.3 191H407l-47-191z"/>
 </svg>
