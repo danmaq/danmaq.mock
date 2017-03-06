@@ -1,23 +1,24 @@
-'use strict;'
+'use strict';
 
 // ========================================================
 // 基本キャッシュ
-let windowCache = { w: innerWidth, h: innerHeight };
+let windowCache = {};
 
 function renewWindowCache() {
-    windowCache = { w: innerWidth, h: innerHeight };
+    windowCache = {
+        w: document.documentElement.clientWidth,
+        h: innerHeight
+    };
 }
-renewWindowCache();
-
-// ========================================================
-// jQueryキャッシュ
-let qCache = {};
-const qc = e => e in qCache ? qCache[e] : (qCache[e] = $(e));
 
 // ========================================================
 // Strategyパターンのプロトタイプ
 const STRATEGY = {
     interface: class {
+        cache() { return this._cache; }
+        cacheAndPredicate(o) {
+            return (this._cache = this.predicate(o));
+        }
         predicate(o) { return true; }
         action(o) {}
     },
@@ -25,7 +26,7 @@ const STRATEGY = {
         (l, o) =>
         l
         .concat([STRATEGY.dummy])
-        .find(s => s.predicate(o))
+        .find(s => s.cacheAndPredicate(o))
         .action(o)
 };
 STRATEGY.dummy = new STRATEGY.interface();
@@ -220,6 +221,7 @@ const SS = {
         TAG.show(h.v);
         STRATEGY.run(SS.STRATEGIES, h);
     },
+    hide: () => $('#achieve').find('li').hide(),
     deploy: () => MASTER.SKILLS.AVAILS.map(SS.select).forEach(SS.show)
 };
 
@@ -234,7 +236,7 @@ class SSImage extends STRATEGY.interface {
         };
     }
     path(o) {
-        return MASTER.URI.IMG_SKILLS + o.k + '/' + this.predicate(o);
+        return MASTER.URI.IMG_SKILLS + o.k + '/' + this.cache();
     }
     predicate(o) { return o.v.data('img'); }
     action(o) {
@@ -244,7 +246,7 @@ class SSImage extends STRATEGY.interface {
 }
 
 class SSIcon extends STRATEGY.interface {
-    icon(o) { return TAG.icon('fa-' + this.predicate(o), o.v.text()); }
+    icon(o) { return TAG.icon('fa-' + this.cache(), o.v.text()); }
     predicate(o) { return o.v.data('i'); }
     action(o) { SS.removeText(o.v).append(this.icon(o)); }
 }
@@ -259,7 +261,6 @@ Object.freeze(SS);
 
 // ========================================================
 // 主な作品を背景スクロールするロジック
-let innerHeightCache = -1;
 let wCache = {};
 const WORKS = {
     alpha: a => Math.min(Math.abs(a - 0.5) * 3.0, 1.0),
@@ -295,7 +296,7 @@ const WORKS = {
             };
         },
     createWCache: sel => {
-        const s = qc('#works').find(sel);
+        const s = $('#works').find(sel);
         return { q: s, o: s.find('.overcard'), rc: null };
     },
     scroll:
@@ -310,28 +311,30 @@ const WORKS = {
         },
     selectIllust: MASTER.WORKS.USE_ILLUST ?
         () => {
-            const q = qc('.work-illust');
+            const q = $('#work-illust');
             const f = WORKS.getIllustFname(q.data('cat'), q.data('max'));
             q.css('background-image', STYLE.url(MASTER.URI.IMG_WORKS + f));
         } : () => {},
     select:
         () => {
-            const q = qc('#works');
+            const q = $('#works');
             MASTER.WORKS.SHARED.forEach(v => q.find(v).hide());
             MASTER.WORKS.AVAILS.forEach(v => TAG.show(q.find(v)));
             WORKS.selectIllust();
         },
     scrollAll: s => {
-        const h = innerHeightCache > 0 ? innerHeightCache :
-            (innerHeightCache = innerHeight);
+        const h = windowCache.h;
         MASTER.WORKS.AVAILS_ALL.forEach(
             n => WORKS.scroll(s, h, n));
     },
     showFigure: name => {
-        const q = qc(name + ' figure');
-        if (WIDTH.uplg() && STYLE.isDisplay(qc(name)) && q.length) {
+        const q = $(name + ' figure');
+        if (WIDTH.uplg() &&
+            STYLE.isDisplay($(name)) &&
+            q.length &&
+            !q.children().length) {
             const t = q.data('type');
-            if (!q.children().length && t) {
+            if (t) {
                 const params = WORKS.paramYoutube(q.data('src'));
                 if (q.append(TAG.make(t, params)).data('guest')) {
                     q.append(WORKS.guestCaption());
@@ -354,10 +357,10 @@ const NAV = {
             q, NAV.top(s), 'navbar-expand navbar-dark', 'navbar-light'),
     scroll:
         (p, ms) =>
-        qc('html, body').animate({ scrollTop: p }, ms, 'swing'),
+        $('html, body').animate({ scrollTop: p }, ms, 'swing'),
     anchor: o => {
         const hash = o.currentTarget.hash;
-        const target = qc(hash);
+        const target = $(hash);
         if (!target.length) {
             return true;
         }
@@ -385,16 +388,15 @@ Object.freeze(NAV);
 const HANDLER = {
     scroll:
         () => {
-            const scr = qc(window).scrollTop();
+            const scr = $(window).scrollTop();
             WORKS.scrollAll(scr);
-            NAV.toggle(qc('nav'), scr);
-            NAV.addTopicEffect(scr + qc(window).height() * 1.2);
+            NAV.toggle($('nav'), scr);
+            NAV.addTopicEffect(scr + windowCache.h * 1.2);
         },
     resized:
         () => {
             renewWindowCache();
             wCache = {};
-            innerHeightCache = -1;
             HANDLER.resizedWithoutClearCache();
         },
     resizedWithoutClearCache:
@@ -404,18 +406,20 @@ const HANDLER = {
         },
     ready:
         () => {
-            qc('#achieve').find('li').hide();
-            SS.deploy();
+            renewWindowCache();
             WORKS.select();
-            qc('a[href^="#"]').click(NAV.anchor);
-            qc('.preload').removeClass('preload');
+            SS.hide();
+            SS.deploy();
+            $('a[href^="#"]').click(NAV.anchor);
+            $('.preload').removeClass('preload');
+            renewWindowCache();
             HANDLER.resizedWithoutClearCache();
         },
     init:
         () => {
-            qc(HANDLER.ready);
-            qc(window).scroll(HANDLER.scroll);
-            qc(window).resize(HANDLER.resized);
+            $(HANDLER.ready);
+            $(window).scroll(HANDLER.scroll);
+            $(window).resize(HANDLER.resized);
         }
 };
 Object.freeze(HANDLER);
