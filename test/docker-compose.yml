@@ -1,0 +1,11 @@
+version: '2'
+services:
+  sass:
+    build: sass
+    volumes:
+      - ..:/var/sass
+    command: sass --watch /var/sass/style.scss:/var/sass/style.css
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ..:/usr/share/nginx/html:ro
