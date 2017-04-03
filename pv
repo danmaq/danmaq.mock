@@ -1,8 +1,17 @@
 #!/bin/sh
 
-VOL=$(cd $(dirname $0); pwd):/usr/share/nginx/html:ro
-CONTAINER=`docker run -d -p 4000:80 -v ${VOL} nginx:alpine`
-IP=`docker-machine ip docker`
-printf "Please open via browser: \e[1;4mhttp://${IP}:4000\e[m\n"
-read -p "Press any key to shutdown server."
-docker rm -f ${CONTAINER}
+CONTAINER_N=nginx
+CONTAINER_S=sass
+
+SASS_BASE=/var/sass
+SASS_SRC=${SASS_BASE}/assets/sass/style.scss
+SASS_DST=${SASS_BASE}/assets/css/style.css
+
+PWD=$(cd $(dirname $0); pwd)
+VOL_S=${PWD}:${SASS_BASE}
+VOL_N=${PWD}:/usr/share/nginx/html:ro
+CMD_S=sass --watch ${SASS_SRC}:${SASS_DST}
+
+#docker run --rm -v ${VOL_S} alpine:edge ls
+docker run -d -v ${VOL_S} --name ${CONTAINER_S} danmaq/ruby-sass ${CMD_S}
+docker run -d -p 4000:80 -v ${VOL_N} --name ${CONTAINER_N} nginx:alpine
