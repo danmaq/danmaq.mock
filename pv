@@ -12,6 +12,7 @@ VOL_S=${PWD}:${SASS_BASE}
 VOL_N=${PWD}:/usr/share/nginx/html:ro
 CMD_S=sass --watch ${SASS_SRC}:${SASS_DST}
 
-#docker run --rm -v ${VOL_S} alpine:edge ls
+# Volume の調子おかしいのは Windows だけなので検証せずに鯖立てる
 docker run -d -v ${VOL_S} --name ${CONTAINER_S} danmaq/ruby-sass ${CMD_S}
 docker run -d -p 4000:80 -v ${VOL_N} --name ${CONTAINER_N} nginx:alpine
+
