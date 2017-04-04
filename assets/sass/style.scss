@@ -1,1 +1,7 @@
-
+$color_base: #BBBFDC;
+$color_dark: desaturate(darken($color_base, 28%), 10%);
+body {
+    background-color: $color_dark;
+    font-size: 1rem;
+    line-height: 1.5;
+}

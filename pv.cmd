@@ -14,11 +14,13 @@ set CMD_S=sass --watch %SASS_SRC%:%SASS_DST%
 
 docker run --rm -v %VOL_S% alpine:edge test -f %SASS_SRC%
 echo %ERRORLEVEL%
-rem exit /b 0
-
-
+if %ERRORLEVEL% neq 0 goto ERR_VOL
 docker run -d -v %VOL_S% --name %CONTAINER_S% danmaq/ruby-sass %CMD_S%
 docker run -d -p 4000:80 -v %VOL_N% --name %CONTAINER_N% nginx:alpine
 endlocal
 
 exit /b 0
+
+:ERR_VOL
+echo VOLUME SYNC FAILED.
+exit /b 1
